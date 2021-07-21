@@ -48,11 +48,11 @@
 							</span>
 							<span>
 							<label for="category">{{ t('client.category-input') }}</label>
-							<select class="form-select">
-  								<option selected disabled>Catégorie</option>
-  								<option value="1">Assuré</option>
-  								<option value="2">Enfant</option>
-  								<option value="3">Ayant droits</option>
+							<select class="form-select" :id="categoryInput">
+  								<option selected disabled>{{ t('client.category-input-options. ') }}</option>
+                                  <option value="1">{{ t('client.category-input-options.1') }}</option>
+                                  <option value="2">{{ t('client.category-input-options.2') }}</option>
+                                  <option value="3">{{ t('client.category-input-options.3') }}</option>
 							</select>
 							</span>
 						</div>

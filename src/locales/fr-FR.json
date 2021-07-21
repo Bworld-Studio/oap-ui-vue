@@ -55,7 +55,6 @@
 		"birthdate-input": "Date de naissance",
 		"maidenName-input": "Nom de jeune fille",
 		"birthorder-input": "Rang de naissance",
-		"category-input": "catégorie",
 		"address-input": "Adresse",
 		"address2-input": "Complément d'adresse",
 		"city-input": "Ville",
@@ -64,6 +63,13 @@
 		"phone-input": "Numéro téléphone",
 		"center-input": "Centre CPAM",
 		"viewAt-input": "Dernière visite",
+		"category-input": "catégorie",
+        "category-input-options": {
+            " ": "catégorie",
+            "1": "Assuré",
+            "2": "Enfant",
+            "3": "Ayant droit"
+		},
 		"sex-input": "Sexe",
         "sex-input-options": {
             " ": "sexe",
