@@ -63,6 +63,11 @@
 		"phone-input": "Numéro téléphone",
 		"center-input": "Centre CPAM",
 		"viewAt-input": "Dernière visite",
+		"weight-input": "Poids",
+		"size-input": "Taille",
+		"measurement-input": "Mesures",
+		"allergy-input": "Allergie",
+		"historic-input": "Historique",
 		"category-input": "catégorie",
         "category-input-options": {
             " ": "catégorie",

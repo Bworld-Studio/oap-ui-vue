@@ -132,6 +132,34 @@
 				</div>
 				<div class="card" style="width: 45%;">
 					<div class="card__title"><h3>{{ t('client.patho-title') }}</h3></div>
+						<div class="card__wrapper">
+							<div class="card__line">
+								<span>
+									<label for="weightInput">{{ t('client.weight-input') }}</label>
+									<input type="text" v-model="client.weight" :placeholder=" t('client.weight-input')" :id="weightInput" class="form-control form-control-sm" />
+								</span>
+								<span>
+									<label for="sizeInput">{{ t('client.size-input') }}</label>
+									<input type="text" v-model="client.size" :placeholder=" t('client.size-input')" :id="sizeInput" class="form-control form-control-sm"/>
+								</span>
+							</div>
+							<div class="card__line">
+								<span>
+									<label for="measurementInput">{{ t('client.measurement-input') }}</label>
+									<input type="text" v-model="client.measurement" :placeholder=" t('client.measurement-input')" :id="measurementInput" class="form-control form-control-sm" />
+								</span>
+								<span>
+									<label for="allergyInput">{{ t('client.allergy-input') }}</label>
+									<input type="text" v-model="client.allergy" :placeholder=" t('client.allergy-input')" :id="allergytInput" class="form-control form-control-sm" />
+								</span>
+							</div>
+							<div class="card__line">
+								<span>
+									<label for="historicInput">{{ t('client.historic-input') }}</label>
+									<input type="table" v-model="client.historic" :placeholder=" t('client.historic-input')" :id="historicInput" class="form-control form-control-sm" />
+								</span>
+							</div>
+						</div>
 				</div>
 			</div>
 			<!-- <div class="row g-2"> -->
@@ -213,7 +241,7 @@
 	.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
 	.card__wrapper {margin: 1rem 1rem;}
 	.card > h3 { margin-bottom: 0.5rem; }
-	.card__line { display: flex; flex-direction: row; margin: 0.5rem 0.5rem;}
+	.card__line { display: flex; flex-direction: row; margin: 0.5rem 0.5rem; }
 	.input_ss { width: 9em; }
 	.input_key { width: 3em; }
 	.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
