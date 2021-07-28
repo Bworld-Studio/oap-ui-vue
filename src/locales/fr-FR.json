@@ -67,7 +67,7 @@
 		"size-input": "Taille",
 		"measurement-input": "Mesures",
 		"allergy-input": "Allergie",
-		"historic-input": "Historique",
+		"comment-input": "Commentaire",
 		"category-input": "catégorie",
         "category-input-options": {
             " ": "catégorie",

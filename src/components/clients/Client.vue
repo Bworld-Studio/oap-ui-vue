@@ -143,20 +143,22 @@
 									<input type="text" v-model="client.size" :placeholder=" t('client.size-input')" :id="sizeInput" class="form-control form-control-sm"/>
 								</span>
 							</div>
-							<div class="card__line">
+							<div class="card__line1">
 								<span>
 									<label for="measurementInput">{{ t('client.measurement-input') }}</label>
 									<input type="text" v-model="client.measurement" :placeholder=" t('client.measurement-input')" :id="measurementInput" class="form-control form-control-sm" />
 								</span>
+							</div>
+							<div class="card__line1">
 								<span>
 									<label for="allergyInput">{{ t('client.allergy-input') }}</label>
 									<input type="text" v-model="client.allergy" :placeholder=" t('client.allergy-input')" :id="allergytInput" class="form-control form-control-sm" />
 								</span>
 							</div>
-							<div class="card__line">
+							<div class="card__line1">
 								<span>
-									<label for="historicInput">{{ t('client.historic-input') }}</label>
-									<input type="table" v-model="client.historic" :placeholder=" t('client.historic-input')" :id="historicInput" class="form-control form-control-sm" />
+									<label for="commentInput">{{ t('client.comment-input') }}</label>
+									<input type="table" v-model="client.comment" :placeholder=" t('client.comment-input')" :id="commentInput" class="form-control form-control-sm" />
 								</span>
 							</div>
 						</div>
