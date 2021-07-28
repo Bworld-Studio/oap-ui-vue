@@ -22,6 +22,15 @@
 								<label for="birthDateInput">{{ t('client.birthdate-input') }}</label>
 								<input type="date" v-model="client.birthDate" :placeholder=" t('client.birthdate-input')" :id="birthDateInput" class="form-control form-control-sm"/>
 							</span>
+							<span>
+								<label for="sex">{{ t('client.sex-input') }}</label>
+								<select class="form-select form-select-sm" :id="sexInput">
+  								<option selected disabled>{{ t('client.sex-input-options. ') }}</option>
+  								<option value="1">{{ t('client.sex-input-options.1') }}</option>
+  								<option value="2">{{ t('client.sex-input-options.2') }}</option>
+  								<option value="3">{{ t('client.sex-input-options.3') }}</option>
+								</select>
+							</span>
 						</div>
 					</div>
 
