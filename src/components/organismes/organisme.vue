@@ -5,10 +5,11 @@
 		<div class="container__main container-fluid">
 			<div class="card__container">
 				<div class="card" style="width: 45%">
-				<div class="card__title"><h3>{{ t('organism.ident-title') }}</h3></div>
-                </div>
-            </div>
-    </form>
+					<div class="card__title"><h3>{{ t('organism.ident-title') }}</h3></div>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
 </template>
 
