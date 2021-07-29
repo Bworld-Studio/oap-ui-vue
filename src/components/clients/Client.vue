@@ -22,16 +22,36 @@
 								<label for="birthDateInput">{{ t('client.birthdate-input') }}</label>
 								<input type="date" v-model="client.birthDate" :placeholder=" t('client.birthdate-input')" :id="birthDateInput" class="form-control form-control-sm"/>
 							</span>
+						</div>
+						<!-- <div class="card__line">
 							<span>
 								<label for="sex">{{ t('client.sex-input') }}</label>
-								<select class="form-select form-select-sm" :id="sexInput">
-  								<option selected disabled>{{ t('client.sex-input-options. ') }}</option>
-  								<option value="1">{{ t('client.sex-input-options.1') }}</option>
-  								<option value="2">{{ t('client.sex-input-options.2') }}</option>
-  								<option value="3">{{ t('client.sex-input-options.3') }}</option>
+								<select class="form-select" :id="sexInput">
+									<option selected disabled>{{ t('client.sex-input-options. ') }}</option>
+									<option value="1">{{ t('client.sex-input-options.1') }}</option>
+									<option value="2">{{ t('client.sex-input-options.2') }}</option>
+									<option value="3">{{ t('client.sex-input-options.3') }}</option>
 								</select>
 							</span>
-						</div>
+							<span>
+								<label for="birthorder">{{ t('client.birthorder-input') }}</label>
+								<select class="form-select">
+									<option selected disabled>Rang de naissance</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</span>
+							<span>
+								<label for="category">{{ t('client.category-input') }}</label>
+								<select class="form-select" :id="categoryInput">
+									<option selected disabled>{{ t('client.category-input-options. ') }}</option>
+									<option value="1">{{ t('client.category-input-options.1') }}</option>
+									<option value="2">{{ t('client.category-input-options.2') }}</option>
+									<option value="3">{{ t('client.category-input-options.3') }}</option>
+								</select>
+							</span>
+						</div> -->
 					</div>
 
 				</div>
@@ -106,76 +126,38 @@
 				</div>
 				<div class="card" style="width: 45%;">
 					<div class="card__title"><h3>{{ t('client.patho-title') }}</h3></div>
+					<!-- <div class="card__wrapper">
+						<div class="card__line">
+							<span>
+								<label for="weightInput">{{ t('client.weight-input') }}</label>
+								<input type="text" v-model="client.weight" :placeholder=" t('client.weight-input')" :id="weightInput" class="form-control form-control-sm" />
+							</span>
+							<span>
+								<label for="sizeInput">{{ t('client.size-input') }}</label>
+								<input type="text" v-model="client.size" :placeholder=" t('client.size-input')" :id="sizeInput" class="form-control form-control-sm"/>
+							</span>
+						</div>
+						<div class="card__line">
+							<span>
+								<label for="measurementInput">{{ t('client.measurement-input') }}</label>
+								<input type="text" v-model="client.measurement" :placeholder=" t('client.measurement-input')" :id="measurementInput" class="form-control form-control-sm" />
+							</span>
+						</div>
+						<div class="card__line">
+							<span>
+								<label for="allergyInput">{{ t('client.allergy-input') }}</label>
+								<input type="text" v-model="client.allergy" :placeholder=" t('client.allergy-input')" :id="allergytInput" class="form-control form-control-sm" />
+							</span>
+						</div>
+						<div class="card__line">
+							<span>
+								<label for="commentInput">{{ t('client.comment-input') }}</label>
+								<input type="table" v-model="client.comment" :placeholder=" t('client.comment-input')" :id="commentInput" class="form-control form-control-sm" />
+							</span>
+						</div>
+					</div> -->
 				</div>
 			</div>
-			<!-- <div class="row g-2"> -->
-					<!-- <div class="col-6">
-						<div class="p-4 border bg-light"><h1>Identification</h1></div>
-						<span class="row">
-							<div class="col">
-								<label for="lastNameInput">{{ t('client.name-input') }}</label>
-								<input type="text" v-model="client.lastName" :placeholder=" t('client.name-input')" :id="lastNameInput" class="form-control form-control-sm" />
-							</div>
-							<div class="col">
-								<label for="firstNameInput">{{ t('client.firstname-input') }}</label>
-								<input type="text" v-model="client.firstName" :placeholder=" t('client.firstname-input')" :id="firstNameInput" class="form-control form-control-sm"/>
-							</div>
-						</span>
-					</div> -->
-					<!-- <div class="col-6">
-						<div class="p-4 border bg-light"> <h1>Adresse</h1></div>
-					</div> -->
-					<!-- <div class="col-6">
-						<div class="p-4 border bg-light"><h1>Prise en charge</h1></div>
-							<p>
-								<span class="row">
-									<label for="numSSInput">{{ t('client.numss-input') }}</label>
-									<div class="col">
-										<input type="text" v-model="client.numSS" :placeholder="t('client.numss-input')" id="numSSInput" class="form-control form-control-sm input_ss" size="13" />
-									</div>
-									<div class="col">
-										<input type="number" v-model="client.cleSS" :placeholder="t('client.keyss-input')" id="cleSSInput" class="form-control form-control-sm input_key" min="0" max="99" size="2" />
-									</div>
-								</span>
-							</p>
-						</div> -->
-					<!-- <div class="col-6">
-						<div class="p-4 border bg-light"><h1>Physio pathologie</h1></div>
-							<p></p>
-					</div>			 -->
-		<!-- <span class="row">
-		</span> -->
-		<!-- <span class="row">
-			<label for="birthDateInput">{{ t('client.address-input') }}</label>
-			<input type="text" v-model="client.address" :placeholder=" t('client.address-input')" :id="addressInput" class="form-control form-control-sm"/>
-		</span>
-		<span class="row">
-			<label for="birthDateInput">{{ t('client.address2-input') }}</label>
-			<input type="text" v-model="client.address2" :placeholder=" t('client.address2-input')" :id="address2Input" class="form-control form-control-sm"/>
-		</span>
-		<span class="row">
-			<label for="birthDateInput">{{ t('client.zipcode-input') }}</label>
-			<input type="text" v-model="client.zipcode" :placeholder=" t('client.zipcode-input')" :id="zipcodeInput" class="form-control form-control-sm"/>
-		</span>
-		<span class="row">
-			<label for="birthDateInput">{{ t('client.city-input') }}</label>
-			<input type="text" v-model="client.city" :placeholder=" t('client.city-input')" :id="cityInput" class="form-control form-control-sm"/>
-		</span> -->
-		<!-- <span class="row">
-		</span> -->
-				<!-- <span class="row">
-					<label for="birthDateInput">{{ t('client.center-input') }}</label>
-					<input type="text" v-model="client.center" :placeholder=" t('client.center-input')" :id="centerInput" class="form-control form-control-sm"/>
-				</span>
-				<span class="row">
-					<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
-					<input readonly type="text" v-model="client.viewAt" :placeholder=" t('client.viewAt-input')" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
-				</span>
-				<span>
-					<button v-if="client.isEdit == false" type="submit" class="btn btn-success btn-sm" >{{ t('buttons.save-button') }}</button>
-					<button v-else v-on:click="updateClient()" type="button" class="btn btn-primary btn-sm mt-3" >{{ t('buttons.update-button') }}</button>
-				</span> -->
-			<!-- </div> -->
 		</div>
 	</form>
 </div>
@@ -185,11 +167,10 @@
 	.container__main { color: black; background-color: #f4f4f4; } */
 	/* #client .container__main {  } */
 	.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
-	.card {}
-	.card__wrapper {margin: 1rem 1rem;}
+	.card__wrapper { margin: 1rem 1rem; }
 	.card > h3 { margin-bottom: 0.5rem; }
-	.card__line { display: flex; flex-direction: row; }
-	/* .card__line > span { display: flex; flex-direction: row; } */
+	.card__line { display: flex; flex-direction: row; justify-content: space-between ; margin: 0.5rem 0.5rem; }
+	.card__line > span { flex-grow: 1; margin-right: 1rem; }
 	.input_ss { width: 9em; }
 	.input_key { width: 3em; }
 	.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
@@ -282,6 +263,7 @@ export default {
 				})
 		}
 		const updateClient = () => {
+			// debugger
 			Axios.put(`/api/clients/${client.value.uuid}`, client.value)
 				.then(res => {
 					client.value = {}
