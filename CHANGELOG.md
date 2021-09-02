@@ -1,3 +1,13 @@
+### 0.3
+  - ✅ Bump to 0.3
+  - ✅ Align version number on backend bump
+  - 🔁 Update all dependencies to latest
+  - ✅ Reorganisations in Vue files
+  - ✅ Splitting API calls from Vue files for more reusability
+  - 🔨 Corrections made in Translation
+  - 🔨 Corrections in Client.vue
+  - 🚧 Creations of Common functions and Models
+
 ### 0.2.4
   - ✅ Bump to 0.2.4
   - 🔁 Update all dependencies to latest

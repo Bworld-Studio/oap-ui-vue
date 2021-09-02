@@ -3,18 +3,21 @@
 		"locale": "Français",
 		"lang": "fr-FR",
 		"openpharma": "Openpharma",
-		"version": "WebUI 0.2.2"
+		"version": "WebUI 0.2.4"
 	},
 	"buttons": {
 		"yes-button": "Oui",
 		"no-button": "Non",
 		"save-button": "Sauvegarder",
+		"add-button": "Ajouter",
 		"cancel-button": "Annuler",
 		"close-button": "Fermer",
 		"update-button": "Mettre à jour",
 		"edit-button": "Editer",
+		"display-button": "Afficher",
 		"delete-button": "Supprimer",
-		"search-button": "Rechercher"
+		"search-button": "Rechercher",
+		"back-button":"Retour"
 	},
 	"home": {
 		"menu": "Accueil",
@@ -48,25 +51,41 @@
 		"address-title": "Adresse",
 		"care-title": "Prise en charge",
 		"patho-title": "Physio pathologie",
-		"numss-input": "Numéro de Sécurité Sociale",
+		"numss-input": "Numéro de sécurité sociale",
 		"keyss-input": "Clé",
 		"name-input": "Nom",
 		"firstname-input": "Prénom",
 		"birthdate-input": "Date de naissance",
-		"address-input": "Adresse",
+		"maidenName-input": "Nom de jeune fille",
+		"birthorder-input": "Rang de naissance",
+		"streetnum-input": "Numéro",
+		"address-input": "Nom de rue",
 		"address2-input": "Complément d'adresse",
 		"city-input": "Ville",
 		"zipcode-input": "Code postal",
-		"cellphone-input": "Numéro Portable",
+		"mail-input": "Adresse mail",
 		"phone-input": "Numéro téléphone",
+		"cellphone-input": "Numéro portable",
 		"center-input": "Centre CPAM",
 		"viewAt-input": "Dernière visite",
+		"weight-input": "Poids",
+		"size-input": "Taille",
+		"measurement-input": "Mesures",
+		"allergy-input": "Allergie",
+		"comment-input": "Commentaire",
+		"category-input": "Catégorie",
+		"category-input-options": {
+			" ": "Catégorie",
+			"1": "Assuré",
+			"2": "Enfant",
+			"3": "Ayant droit"
+		},
 		"sex-input": "Sexe",
-		"sex-input-options": {
-			" ": " ",
-			"1": "Homme",
-			"2": "Femme",
-			"3": "Autre"
+			"sex-input-options": {
+				" ": "Sexe",
+				"1": "Homme",
+				"2": "Femme",
+				"3": "Autre"
 		},
 		"messages": {
 			"creation-success": "Patient créé avec succés",

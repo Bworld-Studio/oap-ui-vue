@@ -60,6 +60,11 @@ export default {
 			varStr = varTemp
 		}
 
+		const search = (term) => {
+			debugger
+			searchProducts(term)
+		}
+
 		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
 		provide('search', search)

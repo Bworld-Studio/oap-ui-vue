@@ -8,8 +8,8 @@
 				<div class="card-body">
 					<h5 class="card-title">{{ t(view.title) }}</h5>
 					<p class="card-text">{{ t(view.text) }}</p>
-					<a v-bind:href="view.path0" class="card-link">{{ t(view.action0) }}</a>
-					<a v-bind:href="view.path1" class="card-link">{{ t(view.action1) }}</a>
+					<a v-on:click="navigateTo(view.path0)" class="card-link">{{ t(view.action0) }}</a>
+					<a v-on:click="navigateTo(view.path1)" class="card-link">{{ t(view.action1) }}</a>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 // Utilities
 import { ref, reactive, onMounted, computed, provide } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 // import Axios from 'axios' // eslint-disable-line no-unused-vars
 
 // Views
@@ -49,21 +49,25 @@ export default {
 			{ id: 'Orders', title: 'orders.title', text: 'orders.text', action0: 'orders.action0', path0: '/Orders', action1: 'orders.action1', path1: '/Orders' }
 		])
 
-		// const router = useRouter() // Import Router
+		const router = useRouter() // Import Router
 
 		const search = (term) => {
 			// searchClients(term)
 		}
 
+		const navigateTo = (view) => {
+			router.push({ path: view })  //params: { }
+		}
+
 		// Header
-		let actionsList = [{ label: t('clients.action0') }, { label: t('clients.action1') } ]
-		const headerParams = { view: 'home', title: t('home.title'), actions: actionsList } // Header
+		// let actionsList = [{ label: t('clients.action0') }, { label: t('clients.action1') } ]
+		const headerParams = { view: 'home', title: t('home.title'), actions: [] } // Header
 		// provide('action0', getClients)
 		// provide('action1', createClient)
 		// provide('search', search)
 
 		// return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }
-		return { views, search, headerParams, t, d }
+		return { views, search, navigateTo, headerParams, t, d }
 	}
 }
 </script>

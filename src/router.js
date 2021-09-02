@@ -23,6 +23,9 @@ const loadRoutes = function () {
 		if ( route.name === 'Home' ) {
 			route.path = '/'
 		}
+		if ( route.name === 'Notfound' ) {
+			route.path = '/:pathMatch(.*)*'
+		}
 
 		// Import Vue component
 		const component = () => import(file /* @vite-ignore */)

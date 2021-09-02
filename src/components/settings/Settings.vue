@@ -1,16 +1,11 @@
 <template>
-	<div id="products-list" class="container">
-		<h2 class="title">{{$t('settings.title')}}</h2>
-		<!-- <div>
-			<div class="">
-				<h1 class="text-center">Settings</h1>
-			</div>
-			<div class="navbar-nav mr-auto locale-changer">
-				<select v-model="$i18n.locales" class="form-control-sm">
-					<option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.lang">{{ lang.locale }}</option>
-				</select>
-			</div>
-		</div> -->
+	<div id="settings" class="container">
+		<!-- <h2 class="title">{{$t('settings.title')}}</h2> -->
+		<div class="locale-changer">
+			<select v-model="$i18n.locale">
+				<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">{{ lang }}</option>
+			</select>
+		</div>
 	</div>
 </template>
 
@@ -19,27 +14,41 @@
 </style>
 
 <script>
+// Utilities
+import { ref, reactive, onMounted, computed, provide } from 'vue'	// Fonction Vue3-Composition API
+import { useI18n } from 'vue-i18n' 												// I18n
+import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de Vues
+// import Axios from 'axios'																	// Axios pour faire des appels au backend
 
-// import Axios from 'axios'
+// ChartJS
+// import { Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale, RadialLinearScale, TimeScale, TimeSeriesScale, Decimation, Filler, Legend, Title, Tooltip } from 'chart.js'
+
+// Views
+import Header from '../header/Header.vue'									// Import de la vue Header
+
+// API
+
 export default {
-	name: 'Settings',
-	data () {
-		return {
-			langs: []
+	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	setup(props, context) {
+		const { t, d, availableLocales } = useI18n({ useScope: 'global' }) // Labels and Date
+		const headerParams = { view: 'settings', title: t('settings.title') } // Header
+
+		// Import Router for navigation
+		const router = useRouter() // Import Router
+
+		// const langs = []
+
+		// onMounted( () => )
+
+		const search = (term) => {
+			debugger
+			// searchProducts(term)
 		}
-	},
-	mounted () {
-		console.log('App monted')
-		this.getLocalesList()
-	},
-	methods: {
-		getLocalesList () {
-			for (var property in this.$i18n.messages) {
-				if (this.$i18n.messages.hasOwnProperty(property)) {
-					this.langs.push({ 'lang': property, 'locale': this.$i18n.messages[property].global.locale })
-				}
-			}
-		}
+
+		provide('search', search)
+		return { headerParams, search, t, d, availableLocales }
 	}
 }
 </script>
