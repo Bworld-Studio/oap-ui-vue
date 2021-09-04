@@ -14,7 +14,7 @@ export default function useClient() {
 
 		Axios.get(url, { params: { uuid: uuid } })
 			.then(res => {
-				debugger
+				// debugger
 				client.value.id = res.data
 				console.log(res.data)
 				// client.value.addr
@@ -22,7 +22,7 @@ export default function useClient() {
 				// client.value.addr
 			},
 			error => {
-				debugger
+				// debugger
 				console.error(error)
 			})
 	}

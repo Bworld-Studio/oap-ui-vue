@@ -149,7 +149,13 @@
 								<input type="number" v-model="clientRef.care.nir" :placeholder="t('client.numss-input')" id="numSSInput" class="form-control form-control-sm input_ss" size="13" />
 							</span>
 							<span>
-								<input type="number" v-model="clientRef.care.nirKey" :placeholder="t('client.keyss-input')" id="cleSSInput" class="form-control form-control-sm input_key" min="0" max="99" size="2" />
+								<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
+									<span>{{t('client.nirKey-button')}}</span>
+									<i class="bi bi-check"></i>
+								</button>
+							</span>
+							<span>
+								<input type="number" v-model="clientRef.care.nirKey" :placeholder="t('client.keyss-input')" id="cleSSInput" class="form-control form-control-sm input_key" min="0" max="99" size="2" disabled readonly/>
 							</span>
 						</div>
 						<div class="card__line">
@@ -291,6 +297,16 @@ export default {
 			// 	}).catch(err => { console.log(err) })
 		}
 
+		const checkNIR = () => {
+			let nir = clientRef.value.care.nir
+			// debugger
+			let modulo = nir % 97
+			let key = 97 - modulo
+			if (key < 10) key = "0"+ key
+
+			clientRef.value.care.nirKey = key
+		}
+
 		// const display = () => {
 		// 	// debugger
 		// 	mode.value = ( mode.value == 'E' ) ? mode.value = 'D' : mode.value = 'E'
@@ -306,7 +322,7 @@ export default {
 		// provide('action0', updateClient)
 		// provide('action1', display)
 
-		return { clientRef, add, update, deactivate, headerParams, t, d }
+		return { clientRef, add, update, deactivate, checkNIR, headerParams, t, d }
 	}
 }
 </script>

@@ -87,6 +87,7 @@
 				"2": "Femme",
 				"3": "Autre"
 		},
+		"nirKey-button": "Contrôle de clé",
 		"messages": {
 			"creation-success": "Patient créé avec succés",
 			"creation-error": "Erreur lors de la création du patient",
