@@ -8,10 +8,8 @@ export default function useClients() {
 	const clients = ref([])
 
 	const getClients = function() {
-		// debugger
 		Axios.get(api).then(
 			res => {
-				// debugger
 				clients.value = res.data
 			},
 			err => console.error(err)
@@ -19,7 +17,6 @@ export default function useClients() {
 	}
 
 	const searchClients = function(term) {
-		// debugger
 		Axios.get(api, { params: { search: term } })
 			.then(res => {
 				if ( res.status == 200 ) clients.value = res.data // Result.data avec contrôle sur le résultat de l'appel

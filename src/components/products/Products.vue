@@ -1,6 +1,10 @@
 <template>
 <div id="products" style="height: 100%;">
 	<Header v-bind="headerParams"/>
+	<!-- Toolbar -->
+	<div class="toolbar">
+		<button class="btn btn-primary btn-outline-secondary" type="button" id="button-action0" v-on:click="getProducts()">{{t('products.action0')}}</button>
+	</div>
 	<div class="container__main">
 		<div class="container-fluid">
 			<!-- <button class="btn btn-info btn-sm" v-on:click="getProducts()">{{ t('products.action0') }}</button> -->
@@ -69,9 +73,10 @@ export default {
 		}
 
 		// Header parameters
-		const actions = [{ label: t('products.action0') }, { label: t('products.action1') } ]
+		// const actions = [{ label: t('products.action0') }, { label: t('products.action1') }]
+		const actions = []
 		const headerParams = { view: 'clients', title: t('products.title'), actions: actions, searchFnc: search } // Header
-		provide('action0', getProducts)
+		// provide('action0', getProducts)
 		// provide('action1', createClient)
 		provide('search', search)
 

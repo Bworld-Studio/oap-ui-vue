@@ -1,5 +1,5 @@
 import vue from '@vitejs/plugin-vue'
-import fs from 'fs'
+// import fs from 'fs'
 
 // const options = {
 // 	key: fs.readFileSync('./key.pem'),
@@ -8,6 +8,7 @@ import fs from 'fs'
 // }
 
 export default {
+	clearScreen: false,
 	server: {
 		// https: options,
 		host: 'localhost',

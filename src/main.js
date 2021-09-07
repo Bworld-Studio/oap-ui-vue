@@ -8,6 +8,7 @@ import { Popover } from 'bootstrap'
 import './assets/styles/op.css'
 import './assets/styles/opwebui.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 
 // Internationalisation -- i18n
 const loadLocaleMessages = () => {
@@ -33,6 +34,7 @@ const i18n = createI18n({
 	legacy: false,
 	locale: 'fr-FR',
 	fallbackLocale: 'en-GB',
+	globalInjection: true,
 	datetimeFormats: loadDateTimeFormats(),
 	messages: loadLocaleMessages(),
 })
