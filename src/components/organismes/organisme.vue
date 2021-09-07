@@ -8,8 +8,9 @@
 				<div class="card__title"><h3>{{ t('organism.ident-title') }}</h3></div>
                 </div>
             </div>
+		</div>
     </form>
-</div>
+	</div>
 </template>
 
 <style>
