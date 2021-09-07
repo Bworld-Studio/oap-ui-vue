@@ -1,5 +1,8 @@
 <template>
+<div id="Notfound">
 	<img src="/src/assets/images/pharmacy/048-pharmacy.svg">
+	<span>404</span>
+</div>
 </template>
 <script>
 // Utilities
@@ -35,7 +38,7 @@ export default {
 		// onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		return { varStr, varLabel, t }
+		return { t }
 	}
 }
 </script>

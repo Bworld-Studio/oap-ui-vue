@@ -37,8 +37,8 @@
 			</div>
 			<div class="header__actions">
 				<div class="header__actions--buttons">
-					<button class="btn btn-primary me-3 btn-outline-secondary" type="button" id="button-action0" v-if="action0 !== undefined" v-on:click="action0()">{{actions[0].label}}</button>
-					<button class="btn btn-success me-3 btn-outline-secondary" type="button" id="button-action1" v-if="action1 !== undefined" v-on:click="action1()">{{actions[1].label}}</button>
+					<button class="btn btn-primary btn-outline-secondary" type="button" id="button-action0" v-if="action0 !== undefined" v-on:click="action0()">{{actions[0].label}}</button>
+					<button class="btn btn-success btn-outline-secondary" type="button" id="button-action1" v-if="action1 !== undefined" v-on:click="action1()">{{actions[1].label}}</button>
 				</div>
 			</div>
 			<div class="header__status" v-on:click="getStatus()">
@@ -64,11 +64,13 @@
 <style>
 	.header--height { height: 51px !important; }
 	.header__nav { display: flex; flex-direction: row; width: 100%; padding: 5px 10px; justify-content: space-between; }
-	.header__title { color: #fff; width: 25%; }
-	.header__search { width: 50%; display: flex; }
+	.header__nav > div { display: flex; align-items: center; padding: 0 0.2rem; }
+	.header__title { color: #fff; flex-grow: 1; }
+	.header__search { flex-grow: .5; }
 	.header__actions { color: #fff }
+	.header__actions--buttons > button { margin-right: 0.4rem; }
 	/* .header__actions--buttons { } */
-	.header__status { display: flex; align-items: center; }
+	/* .header__status { } */
 	
 </style>
 
@@ -95,13 +97,16 @@ export default {
 
 		const { getStatus, status } = useCommon()
 
-		onMounted(() => getStatus())
+		onMounted(() => {
+			getStatus()
+		})
 
 		const search = inject('search')
 		const action0 = inject('action0')
 		const action1 = inject('action1')
 
 		return { searchText, getStatus, status, view, search, actions, action0, action1, title, t }
+
 	}
 }
 </script>

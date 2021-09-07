@@ -3,9 +3,12 @@
 <div id="showcase">
 	<Header v-bind="headerParams"/>
 	<div class="container__main container-fluid">
-		<div>{{ t(varLabel) }}</div>
-		<!-- <div v-bind="variable"></div> -->
-		<div>{{varStr}}</div>
+		<div class="form-input">
+		  <label>
+		    <input required>
+		    <span class="placeholder">Text Input</span>
+		  </label>
+		</div>
 	</div>
 </div>
 </template>

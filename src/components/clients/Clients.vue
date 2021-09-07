@@ -1,8 +1,10 @@
 <template>
 	<div id="clients">
 		<Header v-bind="headerParams"/>
+		<div class="toolbar">
+			<button class="btn btn-success btn-outline-secondary" type="button" id="button-action1" v-on:click="createClient()">{{t('clients.action1')}}</button>
+		</div>
 		<main class="container__main container-fluid">
-			<!-- <button class="btn btn-primary btn-sm" v-on:click="createClient()">{{ t('clients.action1') }}</button> -->
 			<table class="table"> <!-- class="table" -->
 				<tr v-for="(line) in clients" v-bind:key="line.uuid" v-bind:title="line.numSS">
 					<td scope="col" class="text-left">{{line.lastName}}</td>
@@ -22,9 +24,7 @@
 								<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 							</svg>
 						</button>
-						<!-- <button class="btn btn-danger btn-sm" v-on:click="deleteClient(line.uuid)">{{ t('buttons.delete-button') }}</button> -->
 					</td>
-					<!-- <button class="btn btn-primary btn-sm" v-on:click="editClient(line)">{{ t('buttons.edit-button') }}</button> -->
 				</tr>
 			</table>
 		</main>
@@ -53,11 +53,11 @@ export default {
 	components: { Header },
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
+		
 		const { clients, getClients, searchClients } = useClients()
 
 		// API Calls
 		const search = (term) => {
-			// debugger
 			searchClients(term)
 		}
 
@@ -67,12 +67,14 @@ export default {
 		const router = useRouter() // Import Router
 
 		const createClient = () => {
-			router.push({ name: 'Client', params: { uuid: '' } })
+			router.push({ path: `/Client/${''}`, params: { uuid: '' } })
 		}
 
 		const editClient = (client) => {
 			// debugger
-			router.push({ name: 'Client', params: { uuid: client.uuid, mode: 'E' } })
+			// router.push({ name: '', params: { uuid: , mode: 'E' } })
+			router.push({ path: `/Client/${client.uuid}`, params: { uuid: client.uuid, mode: 'E' } })
+			
 		}
 
 		const displayClient = (client) => {
@@ -81,9 +83,9 @@ export default {
 		}
 
 		// const actionsList = [{ label: t('clients.action0') }, { label: t('clients.action1') } ]
-		const headerParams = { view: 'clients', title: t('clients.title'), actions: [{ label: t('clients.action0') }, { label: t('clients.action1') } ] } // Header
-		provide('action0', getClients)
-		provide('action1', createClient)
+		const headerParams = { view: 'clients', title: t('clients.title'), actions: [] } // Header
+		// provide('action0', getClients)
+		// provide('action1', createClient)
 		provide('search', search)
 
 		return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }
