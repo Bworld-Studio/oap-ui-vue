@@ -16,7 +16,7 @@
 		"notyf": "^3.10.0",
 		"vue": "^3.2.8",
 		"vue-i18n": "^9.1.7",
-		"vue-router": "^4.0.11"
+		"vue-router": "^4.0.12"
 	},
 	"devDependencies": {
 		"@intlify/vite-plugin-vue-i18n": "^2.4.0",
