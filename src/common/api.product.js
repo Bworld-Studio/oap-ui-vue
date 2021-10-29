@@ -6,7 +6,7 @@ export default function useProduct() {
 
 	let product = ref({}) // Changement en let au lieu de const => Expliquer
 
-	const getProduct = function (cip) {
+	const getProduct = (cip) => {
 		let url = api + cip
 		Axios.get(url)
 			.then(result => {
@@ -14,9 +14,22 @@ export default function useProduct() {
 				// console.log(products.value.length)
 
 			})
-			.catch(error =>{
+			.catch(error => {
 				console.log(error)
 			})
 	}
-	return { product, getProduct }
+
+	const getNotice = function (cis) {
+		let url = 'https://base-donnees-publique.medicaments.gouv.fr/affichageDoc.php?specid=67210479&typedoc=N'
+		Axios.get(url)
+			.then(result => {
+				console.log(result)
+				debugger
+			})
+			.catch(error => {
+				console.log(error)
+			})
+
+	}
+	return { product, getProduct, getNotice }
 }

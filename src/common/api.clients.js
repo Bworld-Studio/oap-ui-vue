@@ -2,7 +2,7 @@ import Axios from 'axios'
 import { ref } from 'vue'
 import commonFunctions from '../common/functions'
 
-export default function useClients() {
+export default function apiClients() {
 	const api = '/api/clients' // API URL
 		// Déclarations
 	const clients = ref([])

@@ -1,16 +1,12 @@
 <template>
-<div id="products" style="height: 100%;">
+<div id="products">
 	<Header v-bind="headerParams"/>
-	<!-- Toolbar -->
 	<div class="toolbar">
-		<button class="btn btn-primary btn-outline-secondary" type="button" id="button-action0" v-on:click="getProducts()">{{t('products.action0')}}</button>
+		<button class="btn btn-primary" type="button" id="button-action0" v-on:click="getProducts()">{{t('products.action0')}}</button>
 	</div>
-	<div class="container__main">
-		<div class="container-fluid">
-			<!-- <button class="btn btn-info btn-sm" v-on:click="getProducts()">{{ t('products.action0') }}</button> -->
-		</div>
-		<div class="table-responsive">
-			<table class="table table__body">
+	<div class="view__container">
+		<div class="table-responsive table--100">
+			<table class="table table-striped table-hover table__body">
 				<thead>
 					<tr>
 						<th>{{ t('products.table-header.cis') }}</th>
@@ -19,7 +15,7 @@
 					</tr>
 				</thead>
 				<tbody class="overflow-auto">
-					<tr v-for="(product) in products" :key="product.cis">
+					<tr v-for="(product) in products" :key="product.cis" v-on:click="displayProduct(product)">
 						<th class="text-left">{{product.cis}}</th>
 						<td class="text-left">{{product.labelMed}}</td>
 						<td class="text-left">{{product.pharmaForm}}</td>
@@ -60,29 +56,29 @@ export default {
 
 		const { products, getProducts, searchProducts } = useProducts()		// Get products
 
+		onMounted( () => {
+			if ( products.value.length == 0 ) getProducts()
+		})
+
 		const search = (term) => {
-			debugger
 			searchProducts(term)
 		}
 
 		// Navigation to Client.vue
 		const router = useRouter() // Import Router
 
-		const displayProduct = (client) => {
-			router.push({ name: 'Product', params: { cis: product.cis, mode: 'D' } })
+		const displayProduct = (product) => {
+			let params = { cis: product.cis, labelMed: product.labelMed, mode: 'D' }
+			router.push({ name: 'Product', params: params })
 		}
 
-		// Header parameters
-		// const actions = [{ label: t('products.action0') }, { label: t('products.action1') }]
-		const actions = []
-		const headerParams = { view: 'clients', title: t('products.title'), actions: actions, searchFnc: search } // Header
-		// provide('action0', getProducts)
-		// provide('action1', createClient)
+		// Header
+		const headerParams = { view: 'products', title: t('products.title') } // Header
 		provide('search', search)
 
 		return {
 			products, getProducts, displayProduct,
-			search, headerParams, t
+			headerParams, t
 		}
 	}
 }

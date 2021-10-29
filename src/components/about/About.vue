@@ -1,13 +1,15 @@
 <template>
-<!-- Commentaire HTML -->
-<div id="template">
+<div id="about">
 	<Header v-bind="headerParams"/>
-	<div class="container__main container-fluid">
-		<!-- <h2 class="title">{{ t('template.title') }}</h2> -->
-		<div>{{ t(varLabel) }}</div>
-		<!-- <div v-bind="variable"></div> -->
-		<div>{{varStr}}</div>
+	<div class="toolbar">
+		<button class="btn btn-secondary" v-on:click="$router.back()">
+			<i class="bi bi-caret-left"></i>
+			<span class="btn-label">{{t('buttons.back-button')}}</span>
+		</button>
 	</div>
+	<main class="view__container">
+
+	</main>
 </div>
 </template>
 
@@ -34,26 +36,29 @@ export default {
 	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		const headerParams = { view: 'template', title: t('template.title') } // Header
+		const headerParams = { view: 'about', title: t('about.title') } // Header
 
-		const varLabel = ref('global.version')					// Binding de Label i18n
-		let varStr = ref('Variable Simple binding')		// Variable de type alphanumérique
-		let varNum = 0		// Variable de type nombre
-		let varObj = {}		// Variable de type objet
-		let varTab = []		// Variable de type Table
-		let varUnd = undefined	// Variable de type non défini
+		// const varLabel = ref('global.version')					// Binding de Label i18n
+		// let varStr = ref('Variable Simple binding')		// Variable de type alphanumérique
+		// let varNum = 0		// Variable de type nombre
+		// let varObj = {}		// Variable de type objet
+		// let varTab = []		// Variable de type Table
+		// let varUnd = undefined	// Variable de type non défini
 
-		const getData = () => {
-			let varTemp = 'Test binding' // Accès aux variables dans le code JS
-			console.log('Template: Display stuff in the console')
-			console.log(varTemp)
+		// const getData = () => {
+		// 	let varTemp = 'Test binding' // Accès aux variables dans le code JS
+		// 	console.log('Template: Display stuff in the console')
+		// 	console.log(varTemp)
 
-			varStr = varTemp
-		}
+		// 	varStr = varTemp
+		// }
 
-		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
+		onMounted( () => {
+			
 
-		return { varStr, varLabel, headerParams, t }
+		} ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
+
+		return { headerParams, t }
 	}
 }
 </script>

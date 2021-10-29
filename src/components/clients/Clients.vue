@@ -4,28 +4,33 @@
 		<div class="toolbar">
 			<button class="btn btn-success btn-outline-secondary" type="button" id="button-action1" v-on:click="createClient()">{{t('clients.action1')}}</button>
 		</div>
-		<main class="container__main container-fluid">
-			<table class="table"> <!-- class="table" -->
-				<tr v-for="(line) in clients" v-bind:key="line.uuid" v-bind:title="line.numSS">
-					<td scope="col" class="text-left">{{line.lastName}}</td>
-					<td scope="col" class="text-left">{{line.firstName}}</td>
-					<td scope="col" class="text-left">{{ d(line.birthDate) }}</td>
-					<td scope="col" class=""> <!-- text-right -->
-						<button type="button" class="btn btn-primary btn-sm" v-on:click="displayClient(line)">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-								<path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-								<path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-							</svg>
-						</button>
-						<i class="bi bi-eye-fill"></i>
-						<button type="button" class="btn btn-success btn-sm" v-on:click="editClient(line)">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-								<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-								<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-							</svg>
-						</button>
-					</td>
-				</tr>
+		<main class="view__container container-fluid">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ t('client.name-input') }}</th>
+						<th>{{ t('client.firstname-input') }}</th>
+						<th>{{ t('client.birthdate-input') }}</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody class="overflow-auto">
+					<tr v-for="(line) in clients" v-bind:key="line.uuid" v-bind:title="line.numSS">
+						<td scope="col" class="text-left">{{line.lastName}}</td>
+						<td scope="col" class="text-left">{{line.firstName}}</td>
+						<td scope="col" class="text-left">{{ d(line.birthDate) }}</td>
+						<td scope="col" class="d-flex justify-content-around">
+							<button type="button" class="btn btn-primary btn-sm" v-on:click="displayClient(line)">
+								<i class="bi bi-eye-fill btn-icon"></i>
+								<span class="btn-label">{{ t('buttons.display-button') }}</span>
+							</button>
+							<button type="button" class="btn btn-success btn-sm" v-on:click="editClient(line)">
+								<i class="bi bi-pencil-square btn-icon"></i>
+								<span class="btn-label">{{ t('buttons.edit-button') }}</span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</main>
 	</div>
@@ -40,52 +45,48 @@
 import { ref, reactive, onMounted, computed, provide } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
-import Axios from 'axios' // eslint-disable-line no-unused-vars
 
 // Views
 import Header from '../header/Header.vue'
-import Client from './Client.vue'
 
 // API
-import useClients from '../../common/api.clients.js'
+import apiClients from '../../common/api.clients.js'
 
 export default {
 	components: { Header },
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
 		
-		const { clients, getClients, searchClients } = useClients()
+		const { clients, getClients, searchClients } = apiClients()
 
 		// API Calls
 		const search = (term) => {
 			searchClients(term)
 		}
 
-		onMounted( () => getClients() )
+		onMounted( () => {
+			getClients()
+		})
 
 		// Navigation to Client.vue
 		const router = useRouter() // Import Router
 
 		const createClient = () => {
-			router.push({ path: `/Client/${''}`, params: { uuid: '' } })
+			let client = { uuid : ''}
+			router.push({ path: `/Client/${''}`, params: { p_client: {} } })
 		}
 
 		const editClient = (client) => {
-			// debugger
-			// router.push({ name: '', params: { uuid: , mode: 'E' } })
-			router.push({ path: `/Client/${client.uuid}`, params: { uuid: client.uuid, mode: 'E' } })
-			
+			let params = { uuid: client.uuid, name: client.lastName + ' ' + client.firstName, p_mode: 'E' }
+			router.push({ name: 'Client', params: params })
 		}
 
 		const displayClient = (client) => {
-			// debugger
-			router.push({ name: 'Client', params: { uuid: client.uuid, mode: 'D' } })
+			let params = { uuid: client.uuid, name: client.lastName + ' ' + client.firstName, p_mode: 'D' }
+			router.push({ name: 'Client', params: params })
 		}
 
-		// const actionsList = [{ label: t('clients.action0') }, { label: t('clients.action1') } ]
-		const headerParams = { view: 'clients', title: t('clients.title'), actions: [] } // Header
-		// provide('action0', getClients)
-		// provide('action1', createClient)
+		const headerParams = { view: 'clients', title: t('clients.title') } // Header
 		provide('search', search)
 
 		return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }

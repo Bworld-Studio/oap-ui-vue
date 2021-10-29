@@ -61,7 +61,6 @@ export default {
 		}
 
 		const search = (term) => {
-			debugger
 			searchProducts(term)
 		}
 
