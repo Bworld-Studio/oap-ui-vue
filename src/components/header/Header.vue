@@ -1,5 +1,5 @@
 <template>
-	<nav id="header" class="nav bg-dark header--height"> <!-- Commentaire HTML -->
+	<header id="header" class="nav bg-dark header--height"> <!-- Commentaire HTML -->
 		<div class="header__nav">
 			<div class="header__title">
 				<h4>{{title}}</h4>
@@ -35,21 +35,20 @@
 					</button>
 				</div> -->
 			</div>
-			<div class="header__actions">
+			<!-- <div class="header__actions">
 				<div class="header__actions--buttons">
 					<button class="btn btn-primary btn-outline-secondary" type="button" id="button-action0" v-if="action0 !== undefined" v-on:click="action0()">{{actions[0].label}}</button>
 					<button class="btn btn-success btn-outline-secondary" type="button" id="button-action1" v-if="action1 !== undefined" v-on:click="action1()">{{actions[1].label}}</button>
 				</div>
+			</div> -->
+			<div class="header__avatar">
+				<img src="../../assets/images/avatars/1.png" style="margin-right: 8px;">
 			</div>
-			<div class="header__status" v-on:click="getStatus()">
+			<div class="header__status" v-on:click="updateStatus()">
 				<div v-if="status">
 					<svg width="1em" height="1em" class="bi bi-circle-fill text-success" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="8" cy="8" r="8"/>
 					</svg>
-					<!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-broadcast text-success" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 0 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707z"/>
-						<path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-					</svg> -->
 				</div>
 				<div v-else>
 					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-circle-fill text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-	</nav>
+	</header>
 </template>
 
 <style>
@@ -69,6 +68,7 @@
 	.header__search { flex-grow: .5; }
 	.header__actions { color: #fff }
 	.header__actions--buttons > button { margin-right: 0.4rem; }
+	.header__avatar img { vertical-align: middle; width: 2rem; height: 2rem; border-radius: 50%; }
 	/* .header__actions--buttons { } */
 	/* .header__status { } */
 	
@@ -76,7 +76,7 @@
 
 <script>
 // Utilities
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted, inject,  } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 
 // Views
@@ -85,27 +85,22 @@ import { useI18n } from 'vue-i18n' // I18n
 import useCommon from '../../common/api.common.js'
 
 export default {
-	props: { view: String, title: String, actions: [] },
+	props: { view: String, title: String },
 	setup(props) {
-		const { t } = useI18n({ useScope: 'global' }) // Labels
 
-		const title = props.title		// View Title
-		const view = props.view			// Calling View
-		const actions = props.actions
+		const { t } = useI18n({ useScope: 'global' }) // Labels
+		const title = ref(props.title)
+
+		const search = inject('search')
+
+		// onMounted( () => {
+			const { updateStatus, status } = useCommon()
+			updateStatus()
+		// })
 
 		let searchText = ref('')
 
-		const { getStatus, status } = useCommon()
-
-		onMounted(() => {
-			getStatus()
-		})
-
-		const search = inject('search')
-		const action0 = inject('action0')
-		const action1 = inject('action1')
-
-		return { searchText, getStatus, status, view, search, actions, action0, action1, title, t }
+		return { searchText, updateStatus, status, search, title, t }
 
 	}
 }

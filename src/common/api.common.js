@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export default function useCommon() {
 	let status = ref(false)
 
-	function getStatus() {
+	const updateStatus = () => {
 		Axios.get('/api/status')
 			.then( result => {
 				if (result.status === 200) status.value = true
@@ -14,5 +14,6 @@ export default function useCommon() {
 			}
 		)
 	}
-	return { getStatus, status }
+
+	return { updateStatus, status }
 }

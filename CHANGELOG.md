@@ -1,3 +1,15 @@
+### 0.3.1
+  - ✅ Bump to 0.3.1
+  - 🔁 Update all dependencies to latest
+  - ✅ Reorganisations in Vue files
+  - ✅ Splitting API calls from Vue files for more reusability
+  - 🔨 Corrections made in Translation
+  - 🔨 Corrections in Client.vue
+  - 🔨 Corrections in Settings.vue
+  - 🚧 Creations of Product view
+  - 🚧 Start of Side Menu hiding function
+  - ✅ Upload of new icons and fonts
+
 ### 0.3
   - ✅ Bump to 0.3
   - ✅ Align version number on backend bump

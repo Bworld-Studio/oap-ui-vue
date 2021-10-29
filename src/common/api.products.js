@@ -19,9 +19,9 @@ export default function useProducts() {
 	}
 
 	const searchProducts = function(term) {
-
 		Axios.get(api, { params: { search: term } })
 			.then(result => {
+				debugger
 				if ( result.status == 200 ) products.value = result.data // Result.data avec contrôle sur le résultat de l'appel
 			})
 			.catch(error =>{

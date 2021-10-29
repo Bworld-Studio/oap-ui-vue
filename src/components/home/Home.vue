@@ -1,8 +1,7 @@
 <template>
 <div id="home">
 	<Header v-bind="headerParams"/>
-	<div class="home__main container__main container-fluid">
-		<!-- <h2>{{ t('home.title') }}</h2> -->
+	<main class="home__main view__container container-fluid">
 		<div class="card__container">
 			<div class="card" v-for="(view) in views" :key="view.id" style="width: 25rem;">
 				<div class="card-body">
@@ -13,32 +12,31 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</main>
 </div>
 </template>
 
 <style>
-	#home_view { height: 100%; }
-	.home { height: 100%; }
-	.home__main { height: 100%; }
-	.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
+	#home { height: 100%; }
+	
 	/* .card { margin: 1em } */
 </style>
 
 <script>
 // Utilities
-import { ref, reactive, onMounted, computed, provide } from 'vue'
+import { ref, provide } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter } from 'vue-router'
-// import Axios from 'axios' // eslint-disable-line no-unused-vars
 
 // Views
 import Header from '../header/Header.vue'
 
 // API
 
+
 export default {
 	components: { Header },
+	props: { title: String },
 	setup() {
 
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
@@ -60,14 +58,12 @@ export default {
 		}
 
 		// Header
-		// let actionsList = [{ label: t('clients.action0') }, { label: t('clients.action1') } ]
-		const headerParams = { view: 'home', title: t('home.title'), actions: [] } // Header
-		// provide('action0', getClients)
-		// provide('action1', createClient)
-		// provide('search', search)
 
+		const headerParams = { view: 'home', title: t('home.title') } // Header
+		provide('search', search)
+		
 		// return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }
-		return { views, search, navigateTo, headerParams, t, d }
+		return { views, search, headerParams, navigateTo, t, d }
 	}
 }
 </script>

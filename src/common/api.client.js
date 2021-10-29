@@ -3,28 +3,30 @@ import { ref } from 'vue'
 import commonFunctions from '../common/functions'
 import commonObjects from '../common/objects'
 
-export default function useClient() {
+export default function apiClient() {
 	const api = '/api/clients/' // API URL
 		// Déclarations
 	const client = ref({})
+	console.clear()
 
-	const getClient = (uuid) => {
+	const getClient = async (uuid) => {
 
 		let url = api + uuid
+		let result = {}
 
-		Axios.get(url, { params: { uuid: uuid } })
-			.then(res => {
-				// debugger
-				client.value.id = res.data
-				console.log(res.data)
-				// client.value.addr
-				// client.value.addr
-				// client.value.addr
-			},
-			error => {
-				// debugger
+			try {
+				let response = await Axios.get(url, { params: { uuid: uuid } })
+				result.uuid = response.data.uuid
+				result.id = response.data
+				result.addr = response.data.clients_addrs[0]
+				result.care = response.data.clients_care
+				result.physio = response.data.clients_physios[0]
+				result.scans = response.data.clients_scans
+				result.benef = response.data.clients_benef
+			} catch (error) {
 				console.error(error)
-			})
+			}
+			return result
 	}
 
 	const addClient = function(_client) {

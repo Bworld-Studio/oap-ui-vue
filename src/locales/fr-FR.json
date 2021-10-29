@@ -2,8 +2,8 @@
 	"global": {
 		"locale": "Français",
 		"lang": "fr-FR",
-		"openpharma": "Openpharma",
-		"version": "WebUI 0.2.4"
+		"openpharma": "OPH",
+		"version": "WebUI 0.3.0-fr"
 	},
 	"buttons": {
 		"yes-button": "Oui",
@@ -115,6 +115,20 @@
 			"error": "Une erreur est survenue"
 		}
 	},
+	"product": {
+		"menu": "Produit",
+		"title": "Produit",
+		"text": "",
+		"action0": "Ajouter un produit",
+		"action1": "Afficher la notice",
+		"messages": {
+			"creation-success": "Patient créé avec succés",
+			"creation-error": "Erreur lors de la création du patient",
+			"update-success": "Patient mis à jour avec succés",
+			"update-error": "Error lors de la mise à jour du patient",
+			"error": "Une erreur est survenue"
+		}
+	},
 	"orders": {
 		"menu": "Commandes",
 		"title": "Commandes",
@@ -146,6 +160,8 @@
 	"settings": {
 		"menu": "Paramètres",
 		"title": "Paramètres",
+		"display": "Affichage",
+		"locale-input": "Langue",
 		"messages": {
 			"creation-success": "Patient créé avec succés",
 			"creation-error": "Erreur lors de la création du patient",

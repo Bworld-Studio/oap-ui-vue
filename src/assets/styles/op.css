@@ -1,3 +1,148 @@
+/*
+*		CSS TABLE OF CONTENTS
+
+*		1.0 - Globals
+*		2.0 - Fonts
+*		3.0 - Colors
+*		4.0 - Bootstrap redesign
+*		5.0 - UI Elements
+*		6.0 - Views Specific
+*/
+
+/*** 1.0 - Globals ***/
+
 html { height: 100%; width: 100%; margin: 0px; padding: 0px; overflow: hidden; }
-body { height: 100%; width: 100%; margin: 0px; padding: 0px; overflow: hidden; font-size: 13px;/* font-weight: 400; */ }
+body { height: 100%; width: 100%; margin: 0px; padding: 0px; overflow: hidden; font-size: 13px; }
 #app { display: flex; flex-direction: row; height: 100%; width: 100%; }
+a > label, span { cursor: pointer !important; }
+a { cursor: pointer !important; }
+
+.bg-dark {
+	background-color: var(--main-color2) !important;
+}
+
+/*** 2.0 - Fonts ***/
+
+@font-face {
+	font-family: 'Ubuntu-Medium';
+	src: url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'OpenSans-Regular';
+	src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Libertine-Regular';
+	src: url("../fonts/LinLibertine_R.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Organo';
+	src: url("../fonts/Organo.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Righteous-Regular';
+	src: url("../fonts/Righteous-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: 'Smooth-Circulars';
+	src: url("../fonts/Smooth Circulars.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'VanillaExtract';
+	src: url("../fonts/VanillaExtractRegular.ttf") format("truetype");
+}
+
+/*** 3.0 - Color Palette ***/
+
+:root {
+	--main-color1: #3AB595;
+	--main-color2: #1F2020;
+}
+
+/*** 4.0 - Bootstrap redefinition ***/
+
+/*	4.1 - Buttons		*/
+.btn-primary {
+	color: #fff !important;
+	background-color: #0d6efd !important;
+	border-color: #0d6efd !important;
+}
+.btn-success {
+	color: #fff !important;
+	background-color: #198754 !important;
+	border-color: #198754 !important;
+}
+.btn-label { margin-left: 0.2rem; }
+
+/*	4.2 - Navigatiosn		*/
+
+.nav { height: 100%; }
+.nav-item {
+	display: flex;
+	flex-direction: row;
+	margin: 0.3em 1em;
+	cursor: pointer;
+}
+
+
+/*** 5.0 - UI Elements ***/
+
+/*	5.1 - Header		*/
+.version {
+	padding-left: .2rem;
+	font-size: .8rem;
+	color: grey;
+}
+
+.toolbar { width: 100%; padding: 5px 10px; background-color: #f4f4f4; }
+.toolbar > button { margin-right: 1rem; }
+
+/*	5.2	- Cards 		*/
+
+.card { margin: 1rem 0.2rem; }
+.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
+.card__title {color: white; background-color: #3ab595ff; padding: 0.5rem 1rem;}
+.card__wrapper { margin: 1rem 1rem; }
+.card > h3 { margin-bottom: 0.5rem; }
+.card__line { display: flex; flex-direction: row; justify-content: space-between ; margin: 0.5rem 0.5rem; }
+.card__line > span { flex-grow: 1; margin-right: 1rem; }
+.pointer { cursor: pointer; }
+
+/*** 6.0 - Views Specific ***/
+
+#main { height: 100%; width: 100%; }
+#main > div { height: inherit;}
+
+.view__container { height: calc(100% - 99px); background-color: #f4f4f4; color: black; }
+.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
+
+.table--100 { height: 100%; }
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/*	Views																		*/
+
+
+
+/*----------------------------------------------------------------------------*/
+/* UI Elements																*/
+
+
+
+/*----------------------------------------------------------------------------*/
+/* Fonts																																			*/

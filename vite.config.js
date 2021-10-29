@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default {
 	server: {
-		https: true,
+		// https: true,
 		host: 'localhost',
 		port: 8080,
 		proxy: {

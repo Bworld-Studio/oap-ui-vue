@@ -1,12 +1,26 @@
 <template>
-	<div id="settings" class="container">
-		<!-- <h2 class="title">{{$t('settings.title')}}</h2> -->
-		<div class="locale-changer">
-			<select v-model="$i18n.locale">
-				<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">{{ lang }}</option>
-			</select>
+<div id="settings">
+	<Header v-bind="headerParams"/>
+	<div class="toolbar d-flex justify-content-between">
+		<span></span>
+		<span>
+			<button class="btn btn-danger" type="button" id="button-action0" v-on:click="getProducts()">{{ t('settings.reset-to-default') }}</button>
+		</span>
+	</div>
+	<div class="view__container container-fluid">
+		<div id="settings__display">
+			<h4>{{ t('settings.display')}}</h4>
+			<div class="card__line">
+				<span class="form-floating">
+					<select class="form-select form-select-sm" v-model="$i18n.locale" :id="localeChanger">
+						<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">{{ lang }}</option>
+					</select>
+					<label for="localeChanger">{{ t('settings.locale-input') }}</label>
+				</span>
+			</div>
 		</div>
 	</div>
+</div>
 </template>
 
 <style>
@@ -43,7 +57,6 @@ export default {
 		// onMounted( () => )
 
 		const search = (term) => {
-			debugger
 			// searchProducts(term)
 		}
 
