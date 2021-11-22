@@ -23,7 +23,7 @@
 		"@rollup/plugin-dynamic-import-vars": "^1.4.1",
 		"@vitejs/plugin-vue": "^1.9.4",
 		"@vue/compiler-sfc": "^3.2.20",
-		"eslint": "^8.1.0",
+		"eslint": "^8.3.0",
 		"eslint-plugin-vue": "^8.0.1",
 		"vite": "^2.6.13"
 	}
