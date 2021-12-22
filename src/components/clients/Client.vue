@@ -68,8 +68,18 @@
 							</div>
 							<div class="card__line">
 								<span class="form-floating">
-									<input readonly type="text" v-model="clientRef.id.viewAt" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
-									<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
+									<input type="number" v-model="clientRef.care.nir" id="nirInput" class="form-control form-control-sm input_ss" size="13" :disabled="display"/>
+									<label for="nirInput">{{ t('client.numss-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="number" v-model="clientRef.care.nirKey" id="nirKey" class="form-control form-control-sm input_key" min="0" max="99" size="2" disabled readonly />
+									<label for="nirKey">{{ t('client.keyss-input') }}</label>
+								</span>
+								<span>
+									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
+										<span>{{t('client.nirKey-button')}}</span>
+										<i class="bi bi-check"></i>
+									</button>
 								</span>
 							</div>
 						</div>
@@ -104,9 +114,15 @@
 							<div class="card__line">
 								<span class="form-floating">
 									<input type="tel" v-model="clientRef.addr.cellphone" :id="cellphoneInput" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" class="form-control form-control-sm" :disabled="display"/>
-									<label for="birthDateInput">{{ t('client.phone-input') }}</label>
+									<label for="cellphoneInput">{{ t('client.phone-input') }}</label>
 								</span>
 							</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input type="mail" v-model="clientRef.addr.mail" :id="mailInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="mailInput">{{ t('client.mail-input') }}</label>
+								</span>
+							</div>	
 						</div>
 					</div>
 					<div class="card" style="width: 45%;">
@@ -114,27 +130,62 @@
 						<div class="card__wrapper">
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="number" v-model="clientRef.care.nir" id="nirInput" class="form-control form-control-sm input_ss" size="13" :disabled="display"/>
-									<label for="nirInput">{{ t('client.numss-input') }}</label>
-								</span>
-								<span>
-									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
-										<span>{{t('client.nirKey-button')}}</span>
-										<i class="bi bi-check"></i>
-									</button>
-								</span>
+									<input type="number" v-model="clientRef.care.ROCODE" :id="roCodeInput" class="form-control form-control-sm" size="9" :disabled="display"/>
+									<label for="roCodeInput">{{ t('client.roCode-input') }}</label>
+								</span>	
 								<span class="form-floating">
-									<input type="number" v-model="clientRef.care.nirKey" id="nirKey" class="form-control form-control-sm input_key" min="0" max="99" size="2" disabled readonly />
-									<label for="nirKey">{{ t('client.keyss-input') }}</label>
+									<input type="text" v-model="clientRef.care.ROName" :id="roNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="roNameInput">{{ t('client.roName-input') }}</label>
 								</span>
 							</div>
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.care.RO" :id="centerInput" class="form-control form-control-sm" :disabled="display"/>
-									<label for="centerInput">{{ t('client.center-input') }}</label>
+									<input type="text" v-model="clientRef.care.EXO" :id="exoInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoInput">{{ t('client.exo-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.EXOBEGIN" :id="exoBeginInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoBeginInput">{{ t('client.exoBegin-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.EXOEnd" :id="exoEndInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoEndInput">{{ t('client.exoEnd-input') }}</label>
 								</span>
 							</div>
-						</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input type="number" v-model="clientRef.care.RCCODE" :id="rcCodeInput" class="form-control form-control-sm" size="8" :disabled="display"/>
+									<label for="rcCodeInput">{{ t('client.rcCode-input') }}</label>
+								</span>	
+								<span class="form-floating">
+									<input type="text" v-model="clientRef.care.RCNAME" :id="rcNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcNameInput">{{ t('client.rcName-input') }}</label>
+								</span>
+								</div>
+								<div class="card__line">
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.RCBEGIN" :id="rcBeginInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcBeginInput">{{ t('client.rcBegin-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.RCEND" :id="rcEndInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcEndInput">{{ t('client.rcEnd-input') }}</label>
+								</span>
+								</div>
+								<div class="card__line">
+								<span class="form-floating">
+									<select class="form-select form-select-sm" v-model="clientRef.id.support" :id="supportInput" :disabled="display">
+										<option value="1">{{ t('client.support-input-options.1') }}</option>
+										<option value="2">{{ t('client.support-input-options.2') }}</option>
+										<option value="3">{{ t('client.support-input-options.3') }}</option>
+										<option value="4">{{ t('client.support-input-options.4') }}</option>
+										<option value="5">{{ t('client.support-input-options.5') }}</option>
+										<option value="6">{{ t('client.support-input-options.6') }}</option>
+									</select>
+									<label for="support">{{ t('client.support-input') }}</label>
+								</span>
+								</div>
+							</div>
 					</div>
 					<div class="card" style="width: 45%;">
 						<div class="card__title"><h3>{{ t('client.patho-title') }}</h3></div>
@@ -165,6 +216,12 @@
 								<span class="form-floating">
 									<input type="table" v-model="clientRef.physio.comment" :id="commentInput" class="form-control form-control-sm" :disabled="display"/>
 									<label for="commentInput">{{ t('client.comment-input') }}</label>
+								</span>
+							</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input readonly type="text" v-model="clientRef.id.viewAt" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
+									<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
 								</span>
 							</div>
 						</div>

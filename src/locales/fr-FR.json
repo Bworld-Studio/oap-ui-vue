@@ -66,7 +66,15 @@
 		"mail-input": "Adresse mail",
 		"phone-input": "Numéro téléphone",
 		"cellphone-input": "Numéro portable",
-		"center-input": "Centre CPAM",
+		"roCode-input": "Code RO",
+		"roName-input": "Libéllé RO",
+		"exo-input": "Exonération",
+		"exoBegin-input": "Date début exo",
+		"exoEnd-input": "Date fin exo",
+		"rcCode-input": "Code RC",
+		"rcName-input": "Libéllé RC",
+		"rcBegin-input": "Début de droits",
+		"rcEnd-input": "Fin de droits",
 		"viewAt-input": "Dernière visite",
 		"weight-input": "Poids",
 		"size-input": "Taille",
@@ -94,9 +102,19 @@
 			"update-success": "Patient mis à jour avec succés",
 			"update-error": "Error lors de la mise à jour du patient",
 			"error": "Une erreur est survenue"
-		}
+		},
+		"support-input": "Garantie",
+		"support-input-options": {
+			" ": "garantie",
+			"1": "100/100/100",
+			"2": "100/100/15",
+			"3": "100/100/80",
+			"4": "100/70/15",
+			"5": "100/60/15",
+			"6": "100/0/0"
+	}
 	},
-	"products": {
+		"products": {
 		"menu": "Produits",
 		"title": "Produits",
 		"text": "Dans ce menu vous trouverez les différents produits disponibles",
