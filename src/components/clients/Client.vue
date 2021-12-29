@@ -4,15 +4,15 @@
 	<div class="toolbar">
 		<button class="btn btn-secondary" v-on:click="$router.back()">
 			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-btn')}}</span>
+			<span class="btn-label">{{t('buttons.back-button')}}</span>
 		</button>
 		<button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
 			<i class="bi bi-save"></i>
-			<span class="btn-label">{{t('buttons.save-btn')}}</span>
+			<span class="btn-label">{{t('buttons.save-button')}}</span>
 		</button>
 		<button v-show="!display" v-else class="btn btn-primary" v-on:click="updateClient()">
 			<i class="bi bi-save"></i>
-			<span>{{t('buttons.update-btn')}}</span>
+			<span>{{t('buttons.update-button')}}</span>
 		</button>
 	</div>
 	<main class="view__container">
@@ -68,8 +68,18 @@
 							</div>
 							<div class="card__line">
 								<span class="form-floating">
-									<input readonly type="text" v-model="clientRef.id.viewAt" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
-									<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
+									<input type="number" v-model="clientRef.care.nir" id="nirInput" class="form-control form-control-sm input_ss" size="13" :disabled="display"/>
+									<label for="nirInput">{{ t('client.numss-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="number" v-model="clientRef.care.nirKey" id="nirKey" class="form-control form-control-sm input_key" min="0" max="99" size="2" disabled readonly />
+									<label for="nirKey">{{ t('client.keyss-input') }}</label>
+								</span>
+								<span>
+									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
+										<span>{{t('client.nirKey-button')}}</span>
+										<i class="bi bi-check"></i>
+									</button>
 								</span>
 							</div>
 						</div>
@@ -104,9 +114,15 @@
 							<div class="card__line">
 								<span class="form-floating">
 									<input type="tel" v-model="clientRef.addr.cellphone" :id="cellphoneInput" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" class="form-control form-control-sm" :disabled="display"/>
-									<label for="birthDateInput">{{ t('client.phone-input') }}</label>
+									<label for="cellphoneInput">{{ t('client.phone-input') }}</label>
 								</span>
 							</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input type="mail" v-model="clientRef.addr.mail" :id="mailInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="mailInput">{{ t('client.mail-input') }}</label>
+								</span>
+							</div>	
 						</div>
 					</div>
 					<div class="card" style="width: 45%;">
@@ -114,27 +130,62 @@
 						<div class="card__wrapper">
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="number" v-model="clientRef.care.nir" id="nirInput" class="form-control form-control-sm input_ss" size="13" :disabled="display"/>
-									<label for="nirInput">{{ t('client.numss-input') }}</label>
-								</span>
-								<span>
-									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
-										<span>{{t('client.nirKey-btn')}}</span>
-										<i class="bi bi-check"></i>
-									</button>
-								</span>
+									<input type="number" v-model="clientRef.care.ROCODE" :id="roCodeInput" class="form-control form-control-sm" size="9" :disabled="display"/>
+									<label for="roCodeInput">{{ t('client.roCode-input') }}</label>
+								</span>	
 								<span class="form-floating">
-									<input type="number" v-model="clientRef.care.nirKey" id="nirKey" class="form-control form-control-sm input_key" min="0" max="99" size="2" disabled readonly />
-									<label for="nirKey">{{ t('client.keyss-input') }}</label>
+									<input type="text" v-model="clientRef.care.ROName" :id="roNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="roNameInput">{{ t('client.roName-input') }}</label>
 								</span>
 							</div>
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.care.RO" :id="centerInput" class="form-control form-control-sm" :disabled="display" size="9"/>
-									<label for="centerInput">{{ t('client.center-input') }}</label>
+									<input type="text" v-model="clientRef.care.EXO" :id="exoInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoInput">{{ t('client.exo-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.EXOBEGIN" :id="exoBeginInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoBeginInput">{{ t('client.exoBegin-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.EXOEnd" :id="exoEndInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="exoEndInput">{{ t('client.exoEnd-input') }}</label>
 								</span>
 							</div>
-						</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input type="number" v-model="clientRef.care.RCCODE" :id="rcCodeInput" class="form-control form-control-sm" size="8" :disabled="display"/>
+									<label for="rcCodeInput">{{ t('client.rcCode-input') }}</label>
+								</span>	
+								<span class="form-floating">
+									<input type="text" v-model="clientRef.care.RCNAME" :id="rcNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcNameInput">{{ t('client.rcName-input') }}</label>
+								</span>
+								</div>
+								<div class="card__line">
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.RCBEGIN" :id="rcBeginInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcBeginInput">{{ t('client.rcBegin-input') }}</label>
+								</span>
+								<span class="form-floating">
+									<input type="date" v-model="clientRef.care.RCEND" :id="rcEndInput" class="form-control form-control-sm" :disabled="display"/>
+									<label for="rcEndInput">{{ t('client.rcEnd-input') }}</label>
+								</span>
+								</div>
+								<div class="card__line">
+								<span class="form-floating">
+									<select class="form-select form-select-sm" v-model="clientRef.id.support" :id="supportInput" :disabled="display">
+										<option value="1">{{ t('client.support-input-options.1') }}</option>
+										<option value="2">{{ t('client.support-input-options.2') }}</option>
+										<option value="3">{{ t('client.support-input-options.3') }}</option>
+										<option value="4">{{ t('client.support-input-options.4') }}</option>
+										<option value="5">{{ t('client.support-input-options.5') }}</option>
+										<option value="6">{{ t('client.support-input-options.6') }}</option>
+									</select>
+									<label for="support">{{ t('client.support-input') }}</label>
+								</span>
+								</div>
+							</div>
 					</div>
 					<div class="card" style="width: 45%;">
 						<div class="card__title"><h3>{{ t('client.patho-title') }}</h3></div>
@@ -167,19 +218,25 @@
 									<label for="commentInput">{{ t('client.comment-input') }}</label>
 								</span>
 							</div>
+							<div class="card__line">
+								<span class="form-floating">
+									<input readonly type="text" v-model="clientRef.id.viewAt" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
+									<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div aria-live="polite" aria-atomic="true">
-				<div class="toast-container position-absolute top-0 end-0 mt-5 p-3" id="toastPlacement">
-					<div ref="toastSuccess" class="toast hide text-white bg-success border-0 d-flex" data-bs-autohide="true" data-bs-delay="3000">
-						<div class="toast-body">{{t('client.messages.update-success')}}</div>
-						<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+		</form>
+			<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="d-flex">
+					<div class="toast-body">
+						Hello, world! This is a toast message.
 					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 				</div>
 			</div>
-		</form>
 	</main>
 
 </div>
@@ -193,7 +250,6 @@
 		-webkit-appearance: none;
 		margin: 0;
 		}
-
 </style>
 
 <script>
@@ -201,17 +257,12 @@
 import { ref, reactive, onMounted, computed, provide, inject } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
-import { Modal, Toast } from 'bootstrap'
-
 // Views
 import Header from '../header/Header.vue'
-
 // API
-import apiClient from '../../api/client.js'
-
+import apiClient from '../../common/api.client.js'
 // Objects
 import objects from './../../common/objects.js'
-
 export default {
 	components: { Header },
 	props: {
@@ -220,25 +271,22 @@ export default {
 		mode: String
 	},
 	setup(props, context) {
-		console.log('Setup: Client')
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
 		const display = ref(true)
-		const toastSuccess = ref(null)
-
+		const $notyf = inject('$notyf')
+		const $modal = inject('$modal')
 		const { client, getClient, addClient } = apiClient()
 		const { clientObj } = objects()
 	
 		// Header
 		let	headerParams = { view: 'client', title: props.name } // Header
-
 		const clientRef = ref(clientObj)
-
 		const get = (_uuid) => {
 			getClient(_uuid).then( result => {
 				clientRef.value = result
+				$notyf.success('Test')
 			})
 		}
-
 		onMounted( () => {
 			if ( props.uuid !== undefined && props.uuid !== '' ) {
 				clientRef.value.uuid = props.uuid
@@ -246,12 +294,9 @@ export default {
 			}
 			display.value = (props.p_mode == 'D') ? true : false
 		})
-
 		const add = () => {
 			clientRef._rawValue.active = true
 			addClient(clientRef)
-			const success = new Toast(toastSuccess.value)
-			success.show()
 		}
 		const update = () => {
 		// 	Axios.put(`/api/clients/${client.value.uuid}`, client.value)
@@ -265,7 +310,6 @@ export default {
 		// 			$('#alertError').alert()	// eslint-disable-line no-undef
 		// 		})
 		}
-
 		const deactivate = (_uuid) => {
 			// Axios.delete(`/api/clients/${_uuid}`)
 			// 	.then(res => {
@@ -273,18 +317,14 @@ export default {
 			// 		console.log(res)
 			// 	}).catch(err => { console.log(err) })
 		}
-
 		const checkNIR = () => {
 			let nir = clientRef.value.care.nir
 			let modulo = nir % 97
 			let key = 97 - modulo
 			if (key < 10) key = "0"+ key
-
 			clientRef.value.care.nirKey = key
 		}
-
 		return {
-			toastSuccess,
 			clientRef,
 			display,
 			add,
