@@ -4,15 +4,15 @@
 	<div class="toolbar">
 		<button class="btn btn-secondary" v-on:click="$router.back()">
 			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-button')}}</span>
+			<span class="btn-label">{{t('buttons.back-btn')}}</span>
 		</button>
 		<button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
 			<i class="bi bi-save"></i>
-			<span class="btn-label">{{t('buttons.save-button')}}</span>
+			<span class="btn-label">{{t('buttons.save-btn')}}</span>
 		</button>
 		<button v-show="!display" v-else class="btn btn-primary" v-on:click="updateClient()">
 			<i class="bi bi-save"></i>
-			<span>{{t('buttons.update-button')}}</span>
+			<span>{{t('buttons.update-btn')}}</span>
 		</button>
 	</div>
 	<main class="view__container">
@@ -119,7 +119,7 @@
 								</span>
 								<span>
 									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
-										<span>{{t('client.nirKey-button')}}</span>
+										<span>{{t('client.nirKey-btn')}}</span>
 										<i class="bi bi-check"></i>
 									</button>
 								</span>
@@ -130,7 +130,7 @@
 							</div>
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.care.RO" :id="centerInput" class="form-control form-control-sm" :disabled="display"/>
+									<input type="text" v-model="clientRef.care.RO" :id="centerInput" class="form-control form-control-sm" :disabled="display" size="9"/>
 									<label for="centerInput">{{ t('client.center-input') }}</label>
 								</span>
 							</div>
@@ -171,15 +171,15 @@
 					</div>
 				</div>
 			</div>
-		</form>
-			<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-				<div class="d-flex">
-					<div class="toast-body">
-						Hello, world! This is a toast message.
+			<div aria-live="polite" aria-atomic="true">
+				<div class="toast-container position-absolute top-0 end-0 mt-5 p-3" id="toastPlacement">
+					<div ref="toastSuccess" class="toast hide text-white bg-success border-0 d-flex" data-bs-autohide="true" data-bs-delay="3000">
+						<div class="toast-body">{{t('client.messages.update-success')}}</div>
+						<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 					</div>
-					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 				</div>
 			</div>
+		</form>
 	</main>
 
 </div>
@@ -201,12 +201,13 @@
 import { ref, reactive, onMounted, computed, provide, inject } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
+import { Modal, Toast } from 'bootstrap'
 
 // Views
 import Header from '../header/Header.vue'
 
 // API
-import apiClient from '../../common/api.client.js'
+import apiClient from '../../api/client.js'
 
 // Objects
 import objects from './../../common/objects.js'
@@ -219,11 +220,10 @@ export default {
 		mode: String
 	},
 	setup(props, context) {
-
+		console.log('Setup: Client')
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
 		const display = ref(true)
-		const $notyf = inject('$notyf')
-		const $modal = inject('$modal')
+		const toastSuccess = ref(null)
 
 		const { client, getClient, addClient } = apiClient()
 		const { clientObj } = objects()
@@ -236,7 +236,6 @@ export default {
 		const get = (_uuid) => {
 			getClient(_uuid).then( result => {
 				clientRef.value = result
-				$notyf.success('Test')
 			})
 		}
 
@@ -251,6 +250,8 @@ export default {
 		const add = () => {
 			clientRef._rawValue.active = true
 			addClient(clientRef)
+			const success = new Toast(toastSuccess.value)
+			success.show()
 		}
 		const update = () => {
 		// 	Axios.put(`/api/clients/${client.value.uuid}`, client.value)
@@ -283,6 +284,7 @@ export default {
 		}
 
 		return {
+			toastSuccess,
 			clientRef,
 			display,
 			add,

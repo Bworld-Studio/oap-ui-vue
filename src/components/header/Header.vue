@@ -1,5 +1,5 @@
 <template>
-	<header id="header" class="nav bg-dark header--height"> <!-- Commentaire HTML -->
+	<header id="header" class="nav bg-color header--height"> <!-- Commentaire HTML -->
 		<div class="header__nav">
 			<div class="header__title">
 				<h4>{{title}}</h4>
@@ -82,7 +82,7 @@ import { useI18n } from 'vue-i18n' // I18n
 // Views
 
 // API
-import useCommon from '../../common/api.common.js'
+import useCommon from '../../api/common.js'
 
 export default {
 	props: { view: String, title: String },

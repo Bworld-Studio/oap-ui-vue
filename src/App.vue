@@ -1,6 +1,6 @@
 <template>
 <div id="app_body" class="app_body">
-	<aside id="sidemenu" class="navbar-dark bg-dark">
+	<aside id="sidemenu" class="navbar-dark bg-color">
 		<div class="sidemenu__top">
 			<span class="navbar-dark" style="color: white" v-on:click="toggleMenu('')">
 				<i class="sidemenu__toggler navbar-dark bi bi-list"></i>
@@ -11,7 +11,7 @@
 				<span style="font-family:'OpenSans-Regular'" class="version">{{ t('global.version') }}</span>
 			</a>
 		</div>
-		<menu class="nav navbar-dark bg-dark sidemenu__wrapper">
+		<menu class="nav navbar-dark bg-color sidemenu__wrapper">
 			<ul class="nav navbar-nav flex-column">
 				<li class="nav-item">
 					<a class="nav-link" v-on:click="navigateTo('Clients')">
@@ -67,6 +67,7 @@
 	<div id="main">
 		<router-view/>
 	</div>
+	<div id="splash"></div>
 </div>
 </template>
 
@@ -86,16 +87,17 @@
 
 // Utilities
 import { ref, reactive, onMounted, computed, watch, provide } from 'vue'
-import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
-// import { Notyf } from 'notyf'
+import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 
 // Views
-// import Header from './components/header/Header.vue'
 
 // API
 
 // Common
+
+// Stores
 
 export default {
 	setup() {
@@ -103,12 +105,17 @@ export default {
 
 		const router = useRouter() // Import Router
 
+		const store = useStore()
+		store.dispatch('products/getAllProducts')
+
 		// API Calls
 		// const search = (term) => {
 		// 	// searchClients(term)
 		// }
 
-		// provide('search', search)
+		onMounted( () => {
+
+		})
 
 		const navigateTo = (view) => {
 			router.push({ path: '/'+view })  //params: { }

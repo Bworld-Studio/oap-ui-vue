@@ -4,7 +4,7 @@
 	<div class="toolbar">
 		<button class="btn btn-secondary" v-on:click="$router.back()">
 			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-button')}}</span>
+			<span class="btn-label">{{t('buttons.back-btn')}}</span>
 		</button>
 	</div>
 	<main class="view__container">
@@ -26,7 +26,7 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 import Axios from 'axios'																	// Axios pour faire des appels au backend
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
+import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 

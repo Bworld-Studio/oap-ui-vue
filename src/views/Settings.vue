@@ -38,7 +38,7 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 // import { Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale, RadialLinearScale, TimeScale, TimeSeriesScale, Decimation, Filler, Legend, Title, Tooltip } from 'chart.js'
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
+import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 

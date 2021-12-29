@@ -5,12 +5,12 @@ let routes = []
 // Import all of the components files
 const loadRoutes = function () {
 	let routes = []
-	let files = import.meta.globEager('./components/**/**.vue')
+	let files = import.meta.globEager('./**/**/**.vue')
 
 	for ( const file in files ) {
 
 		let matched = file.split('/')
-		let name = matched[3].split('.')[0]
+		let name = matched[matched.length - 1].split('.')[0]
 
 		let route = {
 			path: '/'+name,
@@ -20,12 +20,10 @@ const loadRoutes = function () {
 		}
 
 		// Specific routes
-		if ( route.name === 'Home' ) {
-			route.path = '/'
-		}
-		if ( route.name === 'Notfound' ) {
-			route.path = '/:pathMatch(.*)*'
-		}
+		if ( route.name === 'Home' ) route.path = '/'
+		// if ( route.name === 'Client' ) route.path = '/Client/:uuid'
+		if ( route.name === 'Product' ) route.path = '/Product/:cis'
+		if ( route.name === 'Notfound' ) route.path = '/:pathMatch(.*)*'
 
 		// Import Vue component
 		const component = () => import(file /* @vite-ignore */)
@@ -37,7 +35,6 @@ const loadRoutes = function () {
 }
 
 routes = loadRoutes()
-console.table
 
 const router = createRouter({
 	history: createWebHistory(),

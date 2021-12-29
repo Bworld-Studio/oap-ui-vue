@@ -7,7 +7,7 @@ export default function apiClient() {
 	const api = '/api/clients/' // API URL
 		// Déclarations
 	const client = ref({})
-	console.clear()
+	// console.log()
 
 	const getClient = async (uuid) => {
 
@@ -29,7 +29,7 @@ export default function apiClient() {
 			return result
 	}
 
-	const addClient = function(_client) {
+	const addClient = (_client) => {
 		_client._rawValue.active = true
 		// debugger
 		console.log(_client)

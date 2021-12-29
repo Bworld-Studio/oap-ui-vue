@@ -29,7 +29,7 @@ import Axios from 'axios'																	// Axios pour faire des appels au back
 import { Chart, BarElement, BarController, CategoryScale, LinearScale, RadialLinearScale, TimeScale, TimeSeriesScale, Legend, Title, Tooltip } from 'chart.js'
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
+import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 

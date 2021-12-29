@@ -22,11 +22,11 @@
 						<td scope="col" class="d-flex justify-content-around">
 							<button type="button" class="btn btn-primary btn-sm" v-on:click="displayClient(line)">
 								<i class="bi bi-eye-fill btn-icon"></i>
-								<span class="btn-label">{{ t('buttons.display-button') }}</span>
+								<span class="btn-label">{{ t('buttons.display-btn') }}</span>
 							</button>
 							<button type="button" class="btn btn-success btn-sm" v-on:click="editClient(line)">
 								<i class="bi bi-pencil-square btn-icon"></i>
-								<span class="btn-label">{{ t('buttons.edit-button') }}</span>
+								<span class="btn-label">{{ t('buttons.edit-btn') }}</span>
 							</button>
 						</td>
 					</tr>
@@ -47,10 +47,10 @@ import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
 
 // Views
-import Header from '../header/Header.vue'
+import Header from '../components/header/Header.vue'
 
 // API
-import apiClients from '../../common/api.clients.js'
+import apiClients from '../api/clients.js'
 
 export default {
 	components: { Header },
@@ -72,8 +72,9 @@ export default {
 		const router = useRouter() // Import Router
 
 		const createClient = () => {
-			let client = { uuid : ''}
-			router.push({ path: `/Client/${''}`, params: { p_client: {} } })
+			let client = { uuid : '', p_mode: 'E'}
+			// router.push({ path: `/Client/${''}`, params: { p_client: {} } })
+			router.push({ name: 'Client', params: client})
 		}
 
 		const editClient = (client) => {

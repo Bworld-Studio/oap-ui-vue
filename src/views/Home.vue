@@ -29,7 +29,7 @@ import { useI18n } from 'vue-i18n' // I18n
 import { useRouter } from 'vue-router'
 
 // Views
-import Header from '../header/Header.vue'
+import Header from '../components/header/Header.vue'
 
 // API
 

@@ -6,18 +6,18 @@
     "version": "WebUI 0.3.0-en"
   },
   "buttons": {
-    "yes-button": "Yes",
-    "no-button": "No",
-    "save-button": "Save",
-    "cancel-button": "Cancel",
-    "close-button": "Close",
-    "update-button": "Update",
-    "edit-button": "Edit",
-    "delete-button": "Delete",
-    "search-button": "Search",
-    "add-button": "Add",
-    "back-button": "Back",
-    "display-button": "Display"
+    "yes-btn": "Yes",
+    "no-btn": "No",
+    "save-btn": "Save",
+    "cancel-btn": "Cancel",
+    "close-btn": "Close",
+    "update-btn": "Update",
+    "edit-btn": "Edit",
+    "delete-btn": "Delete",
+    "search-btn": "Search",
+    "add-btn": "Add",
+    "back-btn": "Back",
+    "display-btn": "Display"
   },
   "home": {
     "menu": "Home",
@@ -80,7 +80,7 @@
     "mail-input": "email",
     "measurement-input": "Measurement",
     "menu": "Client",
-    "nirKey-button": "Social Security Key",
+    "nirKey-btn": "Social Security Key",
     "patho-title": "Pathologie",
     "sex-input": "Sex",
     "sex-input-options": {
@@ -168,12 +168,12 @@
   "updates": {
     "menu": "Bases de données",
     "title": "Bases de données",
-    "bdpm-button": "Mise à jour de la BDPM",
-    "__cis-button": "Mise à jour des spécialités",
-    "__cip-button": "Mise à jour des présentations",
-    "__compo-button": "Mise à jour des compositions",
-    "__gener-button": "Mise à jour des groupes génériques",
-    "__cpd-button": "Mise à jour des conditions de prescription et délivrances",
+    "bdpm-btn": "Mise à jour de la BDPM",
+    "__cis-btn": "Mise à jour des spécialités",
+    "__cip-btn": "Mise à jour des présentations",
+    "__compo-btn": "Mise à jour des compositions",
+    "__gener-btn": "Mise à jour des groupes génériques",
+    "__cpd-btn": "Mise à jour des conditions de prescription et délivrances",
     "messages": {
       "last-update": "Dernière mise à jour le ",
       "__creation-success": "Patient créé avec succés",

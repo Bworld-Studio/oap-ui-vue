@@ -20,7 +20,7 @@ import { useI18n } from 'vue-i18n' 												// I18n
 import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de Vues
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
+import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 // import apiOrders from '../../common/api.orders.js'

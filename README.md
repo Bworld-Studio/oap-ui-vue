@@ -19,17 +19,13 @@ npm run build
 
 ## Last update
 
-### 0.3.1
-  - ✅ Bump to 0.3.1
+### 0.3.2
+  - ✅ Bump to 0.3.2
   - 🔁 Update all dependencies to latest
-  - ✅ Reorganisations in Vue files
+  - ✅ Reorganisation in Vue files in two separated folders. "Views" for root .vue and "Components" for .vue called from views
   - ✅ Splitting API calls from Vue files for more reusability
-  - 🔨 Corrections made in Translation
-  - 🔨 Corrections in Client.vue
-  - 🔨 Corrections in Settings.vue
-  - 🚧 Creations of Product view
-  - 🚧 Start of Side Menu hiding function
-  - ✅ Upload of new icons and fonts
+  - 🚧 Implementation of Vuex to handle State Management
+	- 🔑 Start the use of .env files
 
 [Complete changelog](https://github.com/Bworld-Studio/openpharmaUI/blob/main/CHANGELOG.md)
 

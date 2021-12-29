@@ -5,7 +5,7 @@
 		<span>
 			<button class="btn btn-secondary" v-on:click="$router.back()">
 				<i class="bi bi-caret-left"></i>
-				<span class="btn-label">{{t('buttons.back-button')}}</span>
+				<span class="btn-label">{{t('buttons.back-btn')}}</span>
 			</button>
 		</span>
 		<span>
@@ -16,11 +16,11 @@
 		</span>
 		<!-- <button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
 			<i class="bi bi-save"></i>
-			<span class="btn-label">{{t('buttons.save-button')}}</span>
+			<span class="btn-label">{{t('buttons.save-btn')}}</span>
 		</button>
 		<button v-show="!display" v-else class="btn btn-primary" v-on:click="updateClient()">
 			<i class="bi bi-save"></i>
-			<span>{{t('buttons.update-button')}}</span>
+			<span>{{t('buttons.update-btn')}}</span>
 		</button> -->
 	</div>
 	<main class="view__container container-fluid">
@@ -80,8 +80,8 @@
 				<input readonly type="text" v-model="client.viewAt" :placeholder=" t('client.viewAt-input')" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
 			</span>
 			<span>
-				<button v-if="client.isEdit == false" type="submit" class="btn btn-success btn-sm" >{{ t('buttons.save-button') }}</button>
-				<button v-else v-on:click="updateClient()" type="button" class="btn btn-primary btn-sm mt-3" >{{ t('buttons.update-button') }}</button>
+				<button v-if="client.isEdit == false" type="submit" class="btn btn-success btn-sm" >{{ t('buttons.save-btn') }}</button>
+				<button v-else v-on:click="updateClient()" type="button" class="btn btn-primary btn-sm mt-3" >{{ t('buttons.update-btn') }}</button>
 			</span> -->
 		<!-- </form> -->
 	</main>
@@ -107,7 +107,7 @@ import { useI18n } from 'vue-i18n' // I18n
 import Header from '../header/Header.vue'
 
 // API
-import apiProduct from '../../common/api.product.js'
+import apiProduct from '../../api/product.js'
 
 // Objects
 import objects from './../../common/objects.js'
