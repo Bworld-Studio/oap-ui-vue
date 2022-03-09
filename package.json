@@ -9,7 +9,7 @@
 		"npm-gui": "npx npm-gui"
 	},
 	"dependencies": {
-		"axios": "^0.24.0",
+		"axios": "^0.26.1",
 		"bootstrap": "^5.1.3",
 		"bootstrap-icons": "^1.7.2",
 		"chart.js": "^3.7.0",
