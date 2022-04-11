@@ -11,7 +11,7 @@
 		<span>
 			<button class="btn btn-primary" v-on:click="getNotice()">
 				<i class="bi bi-journal-text"></i>
-				<span class="btn-label">{{t('product.action1')}}</span>	
+				<span class="btn-label">{{t('product.action1')}}</span>
 			</button>
 		</span>
 		<!-- <button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
@@ -30,60 +30,6 @@
 			<span class="cis__code">{{labelMed}}</span>
 		</div>
 
-			<!-- <span class="row">
-				<label for="numSSInput">{{ t('client.numss-input') }}</label>
-				<div class="col">
-					<input type="text" v-model="client.numSS" :placeholder="t('client.numss-input')" id="numSSInput" class="form-control form-control-sm input_ss" size="13" />
-				</div>
-				<div class="col">
-					<input type="number" v-model="client.cleSS" :placeholder="t('client.keyss-input')" id="cleSSInput" class="form-control form-control-sm input_key" min="0" max="99" size="2" />
-				</div>
-			</span> -->
-			<!-- <span class="row">
-				<label for="lastNameInput">{{ t('client.name-input') }}</label>
-				<input type="text" v-model="client.lastName" :placeholder=" t('client.name-input')" :id="lastNameInput" class="form-control form-control-sm" />
-			</span>
-			<span class="row">
-				<label for="firstNameInput">{{ t('client.firstname-input') }}</label>
-				<input type="text" v-model="client.firstName" :placeholder=" t('client.firstname-input')" :id="firstNameInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.birthdate-input') }}</label>
-				<input type="date" v-model="client.birthDate" :placeholder=" t('client.birthdate-input')" :id="birthDateInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.address-input') }}</label>
-				<input type="text" v-model="client.address" :placeholder=" t('client.address-input')" :id="addressInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.address2-input') }}</label>
-				<input type="text" v-model="client.address2" :placeholder=" t('client.address2-input')" :id="address2Input" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.zipcode-input') }}</label>
-				<input type="text" v-model="client.zipcode" :placeholder=" t('client.zipcode-input')" :id="zipcodeInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.city-input') }}</label>
-				<input type="text" v-model="client.city" :placeholder=" t('client.city-input')" :id="cityInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.cellphone-input') }}</label>
-				<input type="tel" v-model="client.cellphone" :placeholder=" t('client.cellphone-input')" :id="cellphoneInput" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" class="form-control form-control-sm" />
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.center-input') }}</label>
-				<input type="text" v-model="client.center" :placeholder=" t('client.center-input')" :id="centerInput" class="form-control form-control-sm"/>
-			</span>
-			<span class="row">
-				<label for="birthDateInput">{{ t('client.viewAt-input') }}</label>
-				<input readonly type="text" v-model="client.viewAt" :placeholder=" t('client.viewAt-input')" :id="viewAtInput" class="form-control form-control-sm form-control-plaintext"/>
-			</span>
-			<span>
-				<button v-if="client.isEdit == false" type="submit" class="btn btn-success btn-sm" >{{ t('buttons.save-btn') }}</button>
-				<button v-else v-on:click="updateClient()" type="button" class="btn btn-primary btn-sm mt-3" >{{ t('buttons.update-btn') }}</button>
-			</span> -->
-		<!-- </form> -->
 	</main>
 </div>
 </template>
@@ -124,18 +70,16 @@ export default {
 		const mode = props.mode
 
 		const { products, getProducts, searchProducts, getProduct } = apiProduct()
-		// const { clientObj } = objects()
 
 		onMounted( () => {
 			
 			if ( props.cis !== undefined && props.cis !== '' ) {
-				// client.value.uuid = props.uuid
 				get(props.cis)
 			}
 		})
 
 		const getNotice = (_cis) => {
-			// getNotice()
+
 		}
 
 		const get = (_cis) => {

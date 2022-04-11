@@ -1,256 +1,257 @@
 {
-	"global": {
-		"locale": "Français",
-		"lang": "fr-FR",
-		"openpharma": "OPH",
-		"version": "WebUI 0.3.0-fr"
-	},
-	"buttons": {
-		"yes-btn": "Oui",
-		"no-btn": "Non",
-		"save-btn": "Sauvegarder",
-		"add-btn": "Ajouter",
-		"cancel-btn": "Annuler",
-		"close-btn": "Fermer",
-		"update-btn": "Mettre à jour",
-		"edit-btn": "Editer",
-		"display-btn": "Afficher",
-		"delete-btn": "Supprimer",
-		"search-btn": "Rechercher",
-		"back-btn": "Retour",
-		"previous-btn": "Précédent",
-		"next-btn": "Suivant",
-		"refresh-btn": "Rafraîchir"
-	},
-	"home": {
-		"menu": "Accueil",
-		"title": "Accueil",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"clients": {
-		"menu": "Patients",
-		"title": "Patients",
-		"text": "Dans ce menu vous trouverez la base patients",
-		"action0": "Liste des patients",
-		"action1": "Ajouter un patient",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"client": {
-		"menu": "Patient",
-		"title": "Patient",
-		"ident-title": "Identification",
-		"address-title": "Adresse",
-		"care-title": "Prise en charge",
-		"patho-title": "Physio pathologie",
-		"numss-input": "Numéro de sécurité sociale",
-		"keyss-input": "Clé",
-		"name-input": "Nom",
-		"firstname-input": "Prénom",
-		"birthdate-input": "Date de naissance",
-		"maidenName-input": "Nom de jeune fille",
-		"birthorder-input": "Rang de naissance",
-		"streetnum-input": "Numéro",
-		"address-input": "Nom de rue",
-		"address2-input": "Complément d'adresse",
-		"city-input": "Ville",
-		"zipcode-input": "Code postal",
-		"mail-input": "Adresse mail",
-		"phone-input": "Numéro téléphone",
-		"cellphone-input": "Numéro portable",
-		"roCode-input": "Code RO",
-		"roName-input": "Libéllé RO",
-		"exo-input": "Exonération",
-		"exoBegin-input": "Date début exo",
-		"exoEnd-input": "Date fin exo",
-		"rcCode-input": "Code RC",
-		"rcName-input": "Libéllé RC",
-		"rcBegin-input": "Début de droits",
-		"rcEnd-input": "Fin de droits",
-		"viewAt-input": "Dernière visite",
-		"weight-input": "Poids",
-		"size-input": "Taille",
-		"measurement-input": "Mesures",
-		"allergy-input": "Allergie",
-		"comment-input": "Commentaire",
-		"category-input": "Catégorie",
-		"category-input-options": {
-			" ": "Catégorie",
-			"1": "Assuré",
-			"2": "Enfant",
-			"3": "Ayant droit"
-		},
-		"sex-input": "Sexe",
-			"sex-input-options": {
-				" ": "Sexe",
-				"1": "Homme",
-				"2": "Femme",
-				"3": "Autre"
-		},
-		"nirKey-btn": "Contrôle de clé",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		},
-		"support-input": "Garantie",
-		"support-input-options": {
-			" ": "garantie",
-			"1": "100/100/100",
-			"2": "100/100/15",
-			"3": "100/100/80",
-			"4": "100/70/15",
-			"5": "100/60/15",
-			"6": "100/0/0"
-	}
-	},
-		"products": {
-		"menu": "Produits",
-		"title": "Produits",
-		"text": "Dans ce menu vous trouverez les différents produits disponibles",
-		"action0": "Liste des produits",
-		"action1": "Ajouter un produit",
-		"table-header": {
-			"cis": "Code Spécialité",
-			"labelMed": "Libéllé Spécialité",
-			"pharmaForm": "Forme pharmacologique"
-		},
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"product": {
-		"menu": "Produit",
-		"title": "Produit",
-		"text": "",
-		"action0": "Ajouter un produit",
-		"action1": "Afficher la notice",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"orders": {
-		"menu": "Commandes",
-		"title": "Commandes",
-		"text": "Dans ce menu vous trouverez les commandes en cours ou passées",
-		"action0": "Liste des commandes",
-		"action1": "Créer une commande",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"search": {
-		"menu": "Recherche",
-		"placeholder-input": "Tapez pour chercher",
-		"title": "Recherche",
-		"results": "Résultats",
-		"action": "Rechercher",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"settings": {
-		"menu": "Paramètres",
-		"title": "Paramètres",
-		"display": "Affichage",
-		"locale-input": "Langue",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"about": {
-		"menu": "À propos",
-		"title": "À propos",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"updates": {
-		"menu": "Bases de données",
-		"title": "Bases de données",
-		"bdpm-btn": "Mise à jour de la BDPM",
-		"__cis-btn": "Mise à jour des spécialités",
-		"__cip-btn": "Mise à jour des présentations",
-		"__compo-btn": "Mise à jour des compositions",
-		"__gener-btn": "Mise à jour des groupes génériques",
-		"__cpd-btn": "Mise à jour des conditions de prescription et délivrances",
-		"messages": {
-			"last-update": "Dernière mise à jour le ",
-			"__creation-success": "Patient créé avec succés",
-			"__creation-error": "Erreur lors de la création du patient",
-			"__update-success": "Patient mis à jour avec succés",
-			"__update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"statistics": {
-		"menu": "Statistiques",
-		"title": "Statistiques",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"showcase": {
-		"menu": "Showcase",
-		"title": "Showcase",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	},
-	"template": {
-		"menu": "Template",
-		"title": "Template",
-		"messages": {
-			"creation-success": "Patient créé avec succés",
-			"creation-error": "Erreur lors de la création du patient",
-			"update-success": "Patient mis à jour avec succés",
-			"update-error": "Error lors de la mise à jour du patient",
-			"error": "Une erreur est survenue"
-		}
-	}
+  "global": {
+    "locale": "Français",
+    "lang": "fr-FR",
+    "openpharma": "OPH",
+    "version": "WebUI 0.3.3-fr"
+  },
+  "buttons": {
+    "yes-btn": "Oui",
+    "no-btn": "Non",
+    "save-btn": "Sauvegarder",
+    "add-btn": "Ajouter",
+    "cancel-btn": "Annuler",
+    "close-btn": "Fermer",
+    "update-btn": "Mettre à jour",
+    "edit-btn": "Editer",
+    "display-btn": "Afficher",
+    "delete-btn": "Supprimer",
+    "search-btn": "Rechercher",
+    "back-btn": "Retour",
+    "previous-btn": "Précédent",
+    "next-btn": "Suivant",
+    "refresh-btn": "Rafraîchir"
+  },
+  "home": {
+    "menu": "Accueil",
+    "title": "Accueil",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "clients": {
+    "menu": "Patients",
+    "title": "Patients",
+    "text": "Dans ce menu vous trouverez la base patients",
+    "action0": "Liste des patients",
+    "action1": "Ajouter un patient",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "client": {
+    "menu": "Patient",
+    "title": "Patient",
+    "ident-title": "Identification",
+    "address-title": "Adresse",
+    "care-title": "Prise en charge",
+    "patho-title": "Physio pathologie",
+    "numss-input": "Numéro de sécurité sociale",
+    "keyss-input": "Clé",
+    "name-input": "Nom",
+    "firstname-input": "Prénom",
+    "birthdate-input": "Date de naissance",
+    "maidenName-input": "Nom de jeune fille",
+    "birthorder-input": "Rang de naissance",
+    "streetnum-input": "Numéro",
+    "address-input": "Nom de rue",
+    "address2-input": "Complément d'adresse",
+    "city-input": "Ville",
+    "zipcode-input": "Code postal",
+    "mail-input": "Adresse mail",
+    "phone-input": "Numéro téléphone",
+    "cellphone-input": "Numéro portable",
+    "roCode-input": "Code RO",
+    "roName-input": "Libéllé RO",
+    "exo-input": "Exonération",
+    "exoBegin-input": "Date début exo",
+    "exoEnd-input": "Date fin exo",
+    "rcCode-input": "Code RC",
+    "rcName-input": "Libéllé RC",
+    "rcBegin-input": "Début de droits",
+    "rcEnd-input": "Fin de droits",
+    "viewAt-input": "Dernière visite",
+    "weight-input": "Poids",
+    "size-input": "Taille",
+    "measurement-input": "Mesures",
+    "allergy-input": "Allergie",
+    "comment-input": "Commentaire",
+    "category-input": "Catégorie",
+    "category-input-options": {
+      "1": "Assuré",
+      "2": "Enfant",
+      "3": "Ayant droit",
+      " ": "Catégorie"
+    },
+    "sex-input": "Sexe",
+    "sex-input-options": {
+      "1": "Homme",
+      "2": "Femme",
+      "3": "Autre",
+      " ": "Sexe"
+    },
+    "nirKey-btn": "Contrôle de clé",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    },
+    "support-input": "Garantie",
+    "support-input-options": {
+      "1": "100/100/100",
+      "2": "100/100/15",
+      "3": "100/100/80",
+      "4": "100/70/15",
+      "5": "100/60/15",
+      "6": "100/0/0",
+      " ": "garantie"
+    }
+  },
+  "products": {
+    "menu": "Produits",
+    "title": "Produits",
+    "text": "Dans ce menu vous trouverez les différents produits disponibles",
+    "action0": "Liste des produits",
+    "action1": "Ajouter un produit",
+    "table-header": {
+      "cis": "Code Spécialité",
+      "labelMed": "Libéllé Spécialité",
+      "pharmaForm": "Forme pharmacologique"
+    },
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    },
+    "addproduct": "Ajouter un produit"
+  },
+  "product": {
+    "menu": "Produit",
+    "title": "Produit",
+    "text": "",
+    "action0": "Ajouter un produit",
+    "action1": "Afficher la notice",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "orders": {
+    "menu": "Commandes",
+    "title": "Commandes",
+    "text": "Dans ce menu vous trouverez les commandes en cours ou passées",
+    "action0": "Liste des commandes",
+    "action1": "Créer une commande",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "search": {
+    "menu": "Recherche",
+    "placeholder-input": "Tapez pour chercher",
+    "title": "Recherche",
+    "results": "Résultats",
+    "action": "Rechercher",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "settings": {
+    "menu": "Paramètres",
+    "title": "Paramètres",
+    "display": "Affichage",
+    "locale-input": "Langue",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "about": {
+    "menu": "À propos",
+    "title": "À propos",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "updates": {
+    "menu": "Bases de données",
+    "title": "Bases de données",
+    "bdpm-btn": "Mise à jour de la BDPM",
+    "__cis-btn": "Mise à jour des spécialités",
+    "__cip-btn": "Mise à jour des présentations",
+    "__compo-btn": "Mise à jour des compositions",
+    "__gener-btn": "Mise à jour des groupes génériques",
+    "__cpd-btn": "Mise à jour des conditions de prescription et délivrances",
+    "messages": {
+      "last-update": "Dernière mise à jour le ",
+      "__creation-success": "Patient créé avec succés",
+      "__creation-error": "Erreur lors de la création du patient",
+      "__update-success": "Patient mis à jour avec succés",
+      "__update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "statistics": {
+    "menu": "Statistiques",
+    "title": "Statistiques",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "showcase": {
+    "menu": "Showcase",
+    "title": "Showcase",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  },
+  "template": {
+    "menu": "Template",
+    "title": "Template",
+    "messages": {
+      "creation-success": "Patient créé avec succés",
+      "creation-error": "Erreur lors de la création du patient",
+      "update-success": "Patient mis à jour avec succés",
+      "update-error": "Error lors de la mise à jour du patient",
+      "error": "Une erreur est survenue"
+    }
+  }
 }

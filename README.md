@@ -1,4 +1,4 @@
-# openpharma WebUI 0.3
+# openpharma WebUI 0.3.3
 
 ## Description
 This package is the Web UI for the openpharma application, it works on all browsers
@@ -19,12 +19,9 @@ npm run build
 
 ## Last update
 
-### 0.3.2
-  - ✅ Bump to 0.3.2
+### 0.3.3
+  - ✅ Bump to 0.3.3
   - 🔁 Update all dependencies to latest
-  - ✅ Reorganisation in Vue files in two separated folders. "Views" for root .vue and "Components" for .vue called from views
-  - ✅ Splitting API calls from Vue files for more reusability
-  - 🚧 Implementation of Vuex to handle State Management
 	- 🔑 Start the use of .env files
 
 [Complete changelog](https://github.com/Bworld-Studio/openpharmaUI/blob/main/CHANGELOG.md)

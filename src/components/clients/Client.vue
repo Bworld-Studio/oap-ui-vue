@@ -4,15 +4,15 @@
 	<div class="toolbar">
 		<button class="btn btn-secondary" v-on:click="$router.back()">
 			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-button')}}</span>
+			<span class="btn-label">{{t('buttons.back-btn')}}</span>
 		</button>
 		<button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
 			<i class="bi bi-save"></i>
-			<span class="btn-label">{{t('buttons.save-button')}}</span>
+			<span class="btn-label">{{t('buttons.save-btn')}}</span>
 		</button>
 		<button v-show="!display" v-else class="btn btn-primary" v-on:click="updateClient()">
 			<i class="bi bi-save"></i>
-			<span>{{t('buttons.update-button')}}</span>
+			<span>{{t('buttons.update-btn')}}</span>
 		</button>
 	</div>
 	<main class="view__container">
@@ -77,7 +77,7 @@
 								</span>
 								<span>
 									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
-										<span>{{t('client.nirKey-button')}}</span>
+										<span>{{t('client.nirKey-btn')}}</span>
 										<i class="bi bi-check"></i>
 									</button>
 								</span>
@@ -260,9 +260,10 @@ import { useRouter, useRoute } from 'vue-router'
 // Views
 import Header from '../header/Header.vue'
 // API
-import apiClient from '../../common/api.client.js'
+import apiClient from '../../api/client.js'
 // Objects
 import objects from './../../common/objects.js'
+
 export default {
 	components: { Header },
 	props: {
