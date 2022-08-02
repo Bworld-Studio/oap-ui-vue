@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"@intlify/vite-plugin-vue-i18n": "^3.4.0",
-		"@rollup/plugin-dynamic-import-vars": "^1.4.2",
+		"@rollup/plugin-dynamic-import-vars": "^1.4.4",
 		"@vitejs/plugin-vue": "^2.3.1",
 		"eslint": "^8.12.0",
 		"eslint-plugin-vue": "^8.6.0",
