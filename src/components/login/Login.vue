@@ -7,11 +7,6 @@
 </div>
 </template>
 
-<style>
-
-	.title{ color: #cacaca }
-
-</style>
 <script>
 // Utilities
 import { ref, reactive, onMounted, computed } from 'vue'	// Fonction Vue3-Composition API
@@ -27,7 +22,7 @@ import Header from '../header/Header.vue'									// Import de la vue Header
 
 export default {
 	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const varLabel = ref('global.version')					// Binding de Label i18n
 		let varStr = ref('Variable Simple binding')		// Variable de type alphanumérique
@@ -51,3 +46,9 @@ export default {
 	}
 }
 </script>
+
+<style>
+
+	.title{ color: #cacaca }
+
+</style>

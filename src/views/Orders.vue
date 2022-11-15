@@ -1,17 +1,12 @@
 <template>
 <!-- Commentaire HTML -->
-<div id="orders">
-	<Header v-bind="headerParams"/>
-	<div class="container__main container-fluid">
-		
+	<div id="orders">
+		<!-- <Header v-bind="headerParams" /> -->
+		<div class="container__main container-fluid">
+			<div />
+		</div>
 	</div>
-</div>
-
 </template>
-
-<style>
-
-</style>
 
 <script>
 // Utilities
@@ -42,3 +37,7 @@ export default {
 	}
 }
 </script>
+
+<style>
+
+</style>

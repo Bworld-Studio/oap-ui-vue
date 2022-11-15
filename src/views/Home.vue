@@ -1,26 +1,20 @@
 <template>
 <div id="home">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<main class="home__main view__container container-fluid">
 		<div class="card__container">
-			<div class="card" v-for="(view) in views" :key="view.id" style="width: 25rem;">
+			<div v-for="(view) in views" :key="view.id" class="card" style="width: 25rem;">
 				<div class="card-body">
 					<h5 class="card-title">{{ t(view.title) }}</h5>
 					<p class="card-text">{{ t(view.text) }}</p>
-					<a v-on:click="navigateTo(view.path0)" class="card-link">{{ t(view.action0) }}</a>
-					<a v-on:click="navigateTo(view.path1)" class="card-link">{{ t(view.action1) }}</a>
+					<a class="card-link" @click="navigateTo(view.path0)">{{ t(view.action0) }}</a>
+					<a class="card-link" @click="navigateTo(view.path1)">{{ t(view.action1) }}</a>
 				</div>
 			</div>
 		</div>
 	</main>
 </div>
 </template>
-
-<style>
-	#home { height: 100%; }
-	
-	/* .card { margin: 1em } */
-</style>
 
 <script>
 // Utilities
@@ -36,7 +30,7 @@ import Header from '../components/header/Header.vue'
 
 export default {
 	components: { Header },
-	props: { title: String },
+	// props: { title: String },
 	setup() {
 
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
@@ -67,3 +61,9 @@ export default {
 	}
 }
 </script>
+
+<style>
+	#home { height: 100%; }
+	
+	/* .card { margin: 1em } */
+</style>

@@ -1,22 +1,15 @@
 <template>
 <div id="about">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar">
-		<button class="btn btn-secondary" v-on:click="$router.back()">
-			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-btn')}}</span>
+		<button class="btn btn-secondary" @click="$router.back()">
+			<i class="bi bi-caret-left" />
+			<span class="btn-label">{{ t('buttons.back-btn') }}</span>
 		</button>
 	</div>
-	<main class="view__container">
-
-	</main>
+	<main class="view__container" />
 </div>
 </template>
-
-<style>
-	/* CSS */
-
-</style>
 
 <script>
 // Utilities
@@ -33,7 +26,7 @@ import Header from '../components/header/Header.vue'									// Import de la vue
 
 export default {
 	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
 		const headerParams = { view: 'about', title: t('about.title') } // Header
@@ -62,3 +55,8 @@ export default {
 	}
 }
 </script>
+
+<style>
+	/* CSS */
+
+</style>

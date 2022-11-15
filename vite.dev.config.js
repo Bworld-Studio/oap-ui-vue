@@ -1,4 +1,7 @@
 import vue from '@vitejs/plugin-vue'
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
 // import fs from 'fs'
 
 // const options = {
@@ -10,7 +13,7 @@ export default {
 	clearScreen: false,
 	server: {
 		// https: options,
-		host: '0.0.0.0',
+		host: 'localhost',
 		port: 8080,
 		proxy: {
 			'/api': {
@@ -22,5 +25,8 @@ export default {
 	},
 	plugins: [
 		vue(),
+		vueI18n(
+			{ include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n'), }
+		),
 	]
 }

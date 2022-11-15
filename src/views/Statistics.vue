@@ -1,9 +1,9 @@
 <template>
 <!-- Commentaire HTML -->
 <div id="template">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<div class="container__main container-fluid">
-		<canvas id="testChart"></canvas>
+		<canvas id="testChart" />
 		<!-- <h2 class="title">{{ t('statistics.title') }}</h2> -->
 		<!-- <div>{{ t(varLabel) }}</div> -->
 		<!-- <div v-bind="variable"></div> -->
@@ -11,11 +11,6 @@
 	</div>
 </div>
 </template>
-
-<style>
-	/* CSS */
-
-</style>
 
 <script>
 // Utilities
@@ -36,7 +31,7 @@ import Header from '../components/header/Header.vue'									// Import de la vue
 
 export default {
 	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
 		const headerParams = { view: 'statistics', title: t('statistics.title') } // Header
@@ -55,23 +50,23 @@ export default {
 					labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
 					datasets: [{
 						label: '# of Votes',
-							data: [12, 19, 3, 5, 2, 3],
-							backgroundColor: [ 'rgba(255, 99, 132, 0.2)',
-								'rgba(54, 162, 235, 0.2)',
-								'rgba(255, 206, 86, 0.2)',
-								'rgba(75, 192, 192, 0.2)',
-								'rgba(153, 102, 255, 0.2)',
-								'rgba(255, 159, 64, 0.2)'
-							],
-							borderColor: [
-								'rgba(255, 99, 132, 1)',
-								'rgba(54, 162, 235, 1)',
-								'rgba(255, 206, 86, 1)',
-								'rgba(75, 192, 192, 1)',
-								'rgba(153, 102, 255, 1)',
-								'rgba(255, 159, 64, 1)'
-							],
-							borderWidth: 1
+						data: [12, 19, 3, 5, 2, 3],
+						backgroundColor: [ 'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+							'rgba(75, 192, 192, 0.2)',
+							'rgba(153, 102, 255, 0.2)',
+							'rgba(255, 159, 64, 0.2)'
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)',
+							'rgba(255, 159, 64, 1)'
+						],
+						borderWidth: 1
 					}]
 				},
 				options: {
@@ -92,3 +87,8 @@ export default {
 	}
 }
 </script>
+
+<style>
+	/* CSS */
+
+</style>

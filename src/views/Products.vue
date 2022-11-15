@@ -1,8 +1,8 @@
 <template>
 <div id="products">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar">
-		<button class="btn btn-primary" type="button" id="button-action0" v-on:click="refreshList()">{{t('buttons.refresh-btn')}}</button>
+		<button id="button-action0" type="button" class="btn btn-primary" @click="refreshList()">{{ t('buttons.refresh-btn') }}</button>
 	</div>
 	<div class="view__container">
 		<div class="table-responsive table--100">
@@ -15,17 +15,17 @@
 					</tr>
 				</thead>
 				<tbody class="overflow-auto">
-					<tr v-for="(product) in products" :key="product.cis" v-on:click="displayProduct(product)">
-						<th class="text-left">{{product.cis}}</th>
-						<td class="text-left">{{product.labelMed}}</td>
-						<td class="text-left">{{product.pharmaForm}}</td>
+					<tr v-for="(product) in products" :key="product.cis" @click="displayProduct(product)">
+						<th class="text-left">{{ product.cis }}</th>
+						<td class="text-left">{{ product.labelMed }}</td>
+						<td class="text-left">{{ product.pharmaForm }}</td>
 					</tr>
 				</tbody>
 			</table>
 			<nav aria-label="...">
 				<ul class="pagination justify-content-center">
 					<li class="page-item disabled">
-						<a class="page-link">{{ t('buttons.previous-btn')}}</a>
+						<a class="page-link">{{ t('buttons.previous-btn') }}</a>
 					</li>
 					<li class="page-item"><a class="page-link" href="#">1</a></li>
 					<li class="page-item active" aria-current="page">
@@ -33,22 +33,14 @@
 					</li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
 					<li class="page-item">
-						<a class="page-link" href="#">{{ t('buttons.next-btn')}}</a>
+						<a class="page-link" href="#">{{ t('buttons.next-btn') }}</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
-
 	</div>
 </div>
 </template>
-
-<style>
-	.table__body {
-		height: 750px;
-		display: block;
-	}
-</style>
 
 <script>
 // Utilities
@@ -85,9 +77,9 @@ export default {
 
 		onMounted( () => {
 			// if ( products.value.length == 0 ) {
-				// const products = computed(() => store.state.products.list)
-				// debugger
-				// products.value = store.list
+			// const products = computed(() => store.state.products.list)
+			// debugger
+			// products.value = store.list
 			// }
 		})
 
@@ -119,3 +111,10 @@ export default {
 	}
 }
 </script>
+
+<style>
+	.table__body {
+		height: 750px;
+		display: block;
+	}
+</style>

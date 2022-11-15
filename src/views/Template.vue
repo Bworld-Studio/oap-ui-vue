@@ -1,20 +1,15 @@
 <template>
 <!-- Commentaire HTML -->
 <div id="template">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<div class="container__main container-fluid">
 		<!-- <h2 class="title">{{ t('template.title') }}</h2> -->
 		<div>{{ t(varLabel) }}</div>
 		<!-- <div v-bind="variable"></div> -->
-		<div>{{varStr}}</div>
+		<div>{{ varStr }}</div>
 	</div>
 </div>
 </template>
-
-<style>
-	/* CSS */
-
-</style>
 
 <script>
 // Utilities
@@ -33,7 +28,7 @@ import Header from '../components/header/Header.vue'									// Import de la vue
 
 export default {
 	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels and Date
 		const headerParams = { view: 'template', title: t('template.title') } // Header
@@ -71,3 +66,8 @@ export default {
 	}
 }
 </script>
+
+<style>
+	/* CSS */
+
+</style>

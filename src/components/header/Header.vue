@@ -60,23 +60,10 @@
 	</header>
 </template>
 
-<style>
-	.header--height { height: 51px !important; }
-	.header__nav { display: flex; flex-direction: row; width: 100%; padding: 5px 10px; justify-content: space-between; }
-	.header__nav > div { display: flex; align-items: center; padding: 0 0.2rem; }
-	.header__title { color: #fff; flex-grow: 1; }
-	.header__search { flex-grow: .5; }
-	.header__actions { color: #fff }
-	.header__actions--buttons > button { margin-right: 0.4rem; }
-	.header__avatar img { vertical-align: middle; width: 2rem; height: 2rem; border-radius: 50%; }
-	/* .header__actions--buttons { } */
-	/* .header__status { } */
-	
-</style>
-
 <script>
+
 // Utilities
-import { ref, onMounted, inject,  } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 
 // Views
@@ -94,8 +81,8 @@ export default {
 		const search = inject('search')
 
 		// onMounted( () => {
-			const { updateStatus, status } = useCommon()
-			updateStatus()
+		const { updateStatus, status } = useCommon()
+		updateStatus()
 		// })
 
 		let searchText = ref('')
@@ -105,3 +92,17 @@ export default {
 	}
 }
 </script>
+
+<style>
+	.header--height { height: 51px !important; }
+	.header__nav { display: flex; flex-direction: row; width: 100%; padding: 5px 10px; justify-content: space-between; }
+	.header__nav > div { display: flex; align-items: center; padding: 0 0.2rem; }
+	.header__title { color: #fff; flex-grow: 1; }
+	.header__search { flex-grow: .5; }
+	.header__actions { color: #fff }
+	.header__actions--buttons > button { margin-right: 0.4rem; }
+	.header__avatar img { vertical-align: middle; width: 2rem; height: 2rem; border-radius: 50%; }
+	/* .header__actions--buttons { } */
+	/* .header__status { } */
+	
+</style>

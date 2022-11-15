@@ -1,4 +1,4 @@
-# openpharma WebUI 0.3.3
+# oph webui vueJS 0.4.0
 
 ## Description
 This package is the Web UI for the openpharma application, it works on all browsers
@@ -19,10 +19,10 @@ npm run build
 
 ## Last update
 
-### 0.3.3
-  - ✅ Bump to 0.3.3
-  - 🔁 Update all dependencies to latest
-	- 🔑 Start the use of .env files
+### 0.4.0
+  - ✅ Bump to 0.4.0
+  - 🚧 Update name repository
+  - ⬆️ Updates all depedencies
 
 [Complete changelog](https://github.com/Bworld-Studio/openpharmaUI/blob/main/CHANGELOG.md)
 

@@ -12,7 +12,10 @@ export default function apiClients() {
 			res => {
 				clients.value = res.data
 			},
-			err => console.error(err)
+			err => {
+				debugger
+				console.error(err)
+			} 
 		)
 	}
 

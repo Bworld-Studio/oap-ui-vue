@@ -184,6 +184,7 @@
     "title": "Paramètres",
     "display": "Affichage",
     "locale-input": "Langue",
+		"reset-to-default": "Réinitialiser les paramètres",
     "messages": {
       "creation-success": "Patient créé avec succés",
       "creation-error": "Erreur lors de la création du patient",
@@ -206,12 +207,10 @@
   "updates": {
     "menu": "Bases de données",
     "title": "Bases de données",
-    "bdpm-btn": "Mise à jour de la BDPM",
-    "__cis-btn": "Mise à jour des spécialités",
-    "__cip-btn": "Mise à jour des présentations",
-    "__compo-btn": "Mise à jour des compositions",
-    "__gener-btn": "Mise à jour des groupes génériques",
-    "__cpd-btn": "Mise à jour des conditions de prescription et délivrances",
+    "bdpm": "Base de Données Publique des médicaments",
+		"bdmit": "Base des Médicaments et Informations Tarifaires",
+		"bdpm-btn": "Mise à jour de la BDPM",
+		"bdmit-btn": "Mise à jour de la BdMIT",
     "messages": {
       "last-update": "Dernière mise à jour le ",
       "__creation-success": "Patient créé avec succés",

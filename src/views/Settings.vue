@@ -1,18 +1,18 @@
 <template>
 <div id="settings">
-	<Header v-bind="headerParams"/>
+	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar d-flex justify-content-between">
-		<span></span>
+		<span />
 		<span>
-			<button class="btn btn-danger" type="button" id="button-action0" v-on:click="getProducts()">{{ t('settings.reset-to-default') }}</button>
+			<!-- <button id="button-action0" type="button" class="btn btn-danger" @click="getProducts()">{{ t('settings.reset-to-default') }}</button> -->
 		</span>
 	</div>
 	<div class="view__container container-fluid">
 		<div id="settings__display">
-			<h4>{{ t('settings.display')}}</h4>
+			<h4>{{ t('settings.display') }}</h4>
 			<div class="card__line">
 				<span class="form-floating">
-					<select class="form-select form-select-sm" v-model="$i18n.locale" :id="localeChanger">
+					<select :id="localeChanger" v-model="$i18n.locale" class="form-select form-select-sm">
 						<option v-for="lang in availableLocales" :key="`locale-${lang}`" :value="lang">{{ lang }}</option>
 					</select>
 					<label for="localeChanger">{{ t('settings.locale-input') }}</label>
@@ -22,10 +22,6 @@
 	</div>
 </div>
 </template>
-
-<style>
-
-</style>
 
 <script>
 // Utilities
@@ -44,7 +40,7 @@ import Header from '../components/header/Header.vue'									// Import de la vue
 
 export default {
 	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t, d, availableLocales } = useI18n({ useScope: 'global' }) // Labels and Date
 		const headerParams = { view: 'settings', title: t('settings.title') } // Header
@@ -65,3 +61,7 @@ export default {
 	}
 }
 </script>
+
+<style>
+
+</style>

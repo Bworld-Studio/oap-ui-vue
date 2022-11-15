@@ -1,22 +1,22 @@
 <template>
 <div id="client">
-	<Header v-bind="headerParams" :key="componentKey"/>
+	<Header v-bind="headerParams" :key="componentKey" />
 	<div class="toolbar">
-		<button class="btn btn-secondary" v-on:click="$router.back()">
-			<i class="bi bi-caret-left"></i>
-			<span class="btn-label">{{t('buttons.back-btn')}}</span>
+		<button class="btn btn-secondary" @click="$router.back()">
+			<i class="bi bi-caret-left" />
+			<span class="btn-label">{{ t('buttons.back-btn') }}</span>
 		</button>
-		<button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
-			<i class="bi bi-save"></i>
-			<span class="btn-label">{{t('buttons.save-btn')}}</span>
+		<button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" @click="add()">
+			<i class="bi bi-save" />
+			<span class="btn-label">{{ t('buttons.save-btn') }}</span>
 		</button>
-		<button v-show="!display" v-else class="btn btn-primary" v-on:click="updateClient()">
-			<i class="bi bi-save"></i>
-			<span>{{t('buttons.update-btn')}}</span>
+		<button v-show="!display" v-else class="btn btn-primary" @click="updateClient()">
+			<i class="bi bi-save" />
+			<span>{{ t('buttons.update-btn') }}</span>
 		</button>
 	</div>
 	<main class="view__container">
-		<form v-on:submit.prevent="add">
+		<form @submit.prevent="add">
 			<div class="container__main container-fluid">
 				<div class="card__container">
 					<div class="card" style="width: 45%">
@@ -24,15 +24,15 @@
 						<div class="card__wrapper">
 							<div class="card__line">
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.id.lastName" :id="lastNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<input id="lastNameInput" v-model="clientRef.id.lastName" type="text" class="form-control form-control-sm" disabled="display" />
 									<label for="lastNameInput">{{ t('client.name-input') }}</label>
 								</span>
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.id.maidenName" :id="maidenNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<input type="text" v-model="clientRef.id.maidenName" :id="maidenNameInput" class="form-control form-control-sm" :disabled="display" />
 									<label for="maidenNameInput">{{ t('client.maidenName-input') }}</label>
 								</span>
 								<span class="form-floating">
-									<input type="text" v-model="clientRef.id.firstName" :id="firstNameInput" class="form-control form-control-sm" :disabled="display"/>
+									<input type="text" v-model="clientRef.id.firstName" :id="firstNameInput" class="form-control form-control-sm" :disabled="display" />
 									<label for="firstNameInput">{{ t('client.firstname-input') }}</label>
 								</span>
 							</div>
@@ -76,9 +76,9 @@
 									<label for="nirKey">{{ t('client.keyss-input') }}</label>
 								</span>
 								<span>
-									<button class="btn btn-primary btn-sm" v-on:click="checkNIR()">
+									<button class="btn btn-primary btn-sm" @click="checkNIR()">
 										<span>{{t('client.nirKey-btn')}}</span>
-										<i class="bi bi-check"></i>
+										<i class="bi bi-check" />
 									</button>
 								</span>
 							</div>
@@ -234,23 +234,13 @@
 					<div class="toast-body">
 						Hello, world! This is a toast message.
 					</div>
-					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close" />
 				</div>
 			</div>
 	</main>
 
 </div>
 </template>
-
-<style>
-	.input_ss { width: 9em; }
-	.input_key { width: 3em; }
-	.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-		-moz-appearance: textfield;
-		-webkit-appearance: none;
-		margin: 0;
-		}
-</style>
 
 <script>
 // Utilities
@@ -296,7 +286,7 @@ export default {
 			display.value = (props.p_mode == 'D') ? true : false
 		})
 		const add = () => {
-			clientRef._rawValue.active = true
+			clientRef.value.active = true
 			addClient(clientRef)
 		}
 		const update = () => {
@@ -322,7 +312,7 @@ export default {
 			let nir = clientRef.value.care.nir
 			let modulo = nir % 97
 			let key = 97 - modulo
-			if (key < 10) key = "0"+ key
+			if (key < 10) key = '0'+ key
 			clientRef.value.care.nirKey = key
 		}
 		return {
@@ -339,3 +329,13 @@ export default {
 	}
 }
 </script>
+
+<style>
+	.input_ss { width: 9em; }
+	.input_key { width: 3em; }
+	.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+		-moz-appearance: textfield;
+		-webkit-appearance: none;
+		margin: 0;
+		}
+</style>

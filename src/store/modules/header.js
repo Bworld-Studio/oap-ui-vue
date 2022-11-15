@@ -1,10 +1,7 @@
-import apiClients from '../../api/clients'
-
-const { clients, getClients, searchClients } = apiClients()
 
 // Initial State
 const state = {
-	list: []
+	title: ''
 	// client : {}
 }
 
@@ -22,9 +19,9 @@ const actions = {
 
 // Mutations
 const mutations = {
-	// setClients (state, products) {
-	// 	state.all = products
-	// },
+	setTitle (state, title) {
+		state.title = title
+	},
 }
 
 

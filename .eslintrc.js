@@ -1,18 +1,24 @@
-export default {
-	extends: [
+module.exports = {
+	'extends': [
 		'plugin:vue/vue3-recommended',
 	],
-	rules: {
-		// override/add rules settings here, such as:
-		// 'vue/no-unused-vars': 'error'
-		// allow async-await
+	'rules': {
 		'generator-star-spacing': 'off',
-		// allow debugger during development
-		// Allow tabs Indentation
 		'eol-last': 0,
-		'indent': [2, 'tab'],
+		'indent': ['error', 'tab'],
 		'no-tabs': 0,
-		'allowIndentationTabs': 1,
-		'no-multiple-template-root': 0
-	}
+		'allowIndentationTab': 0,
+		'quotes': ['error', 'single'],
+		'no-multiple-template-root': 0,
+		// VueJS Specific rules
+		'vue/multi-word-component-names': 0,
+		'vue/html-indent': 0,
+		'vue/max-attributes-per-line': 0,
+		'vue/singleline-html-element-content-newline': 0,
+		'vue/html-self-closing': ['error', {
+			'html': {
+				'void': 'always',
+			}
+		}],
+	},
 }

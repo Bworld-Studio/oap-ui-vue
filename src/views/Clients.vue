@@ -1,44 +1,41 @@
 <template>
-	<div id="clients">
-		<Header v-bind="headerParams"/>
-		<div class="toolbar">
-			<button class="btn btn-success btn-outline-secondary" type="button" id="button-action1" v-on:click="createClient()">{{t('clients.action1')}}</button>
-		</div>
-		<main class="view__container container-fluid">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>{{ t('client.name-input') }}</th>
-						<th>{{ t('client.firstname-input') }}</th>
-						<th>{{ t('client.birthdate-input') }}</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody class="overflow-auto">
-					<tr v-for="(line) in clients" v-bind:key="line.uuid" v-bind:title="line.numSS">
-						<td scope="col" class="text-left">{{line.lastName}}</td>
-						<td scope="col" class="text-left">{{line.firstName}}</td>
-						<td scope="col" class="text-left">{{ d(line.birthDate) }}</td>
-						<td scope="col" class="d-flex justify-content-around">
-							<button type="button" class="btn btn-primary btn-sm" v-on:click="displayClient(line)">
-								<i class="bi bi-eye-fill btn-icon"></i>
-								<span class="btn-label">{{ t('buttons.display-btn') }}</span>
-							</button>
-							<button type="button" class="btn btn-success btn-sm" v-on:click="editClient(line)">
-								<i class="bi bi-pencil-square btn-icon"></i>
-								<span class="btn-label">{{ t('buttons.edit-btn') }}</span>
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</main>
+<div id="clients">
+	<!-- <Header v-bind="headerParams" /> -->
+	<div class="toolbar">
+		<button id="button-action1" type="button" class="btn btn-success btn-outline-secondary" @click="createClient()">
+			{{ t('clients.action1') }}
+		</button>
 	</div>
+	<main class="view__container container-fluid">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>{{ t('client.name-input') }}</th>
+					<th>{{ t('client.firstname-input') }}</th>
+					<th>{{ t('client.birthdate-input') }}</th>
+				</tr>
+			</thead>
+			<tbody class="overflow-auto">
+				<tr v-for="(line) in clients" :key="line.uuid" :title="line.numSS">
+					<td scope="col" class="text-left">{{ line.lastName }}</td>
+					<td scope="col" class="text-left">{{ line.firstName }}</td>
+					<td scope="col" class="text-left">{{ d(line.birthDate) }}</td>
+					<td scope="col" class="d-flex justify-content-around">
+						<button type="button" class="btn btn-primary btn-sm" @click="displayClient(line)">
+							<i class="bi bi-eye-fill btn-icon" />
+							<span class="btn-label">{{ t('buttons.display-btn') }}</span>
+						</button>
+						<button type="button" class="btn btn-success btn-sm" @click="editClient(line)">
+							<i class="bi bi-pencil-square btn-icon" />
+							<span class="btn-label">{{ t('buttons.edit-btn') }}</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</main>
+</div>
 </template>
-
-<style>
-
-</style>
 
 <script>
 // Utilities
@@ -94,3 +91,7 @@ export default {
 	}
 }
 </script>
+
+<style>
+
+</style>
