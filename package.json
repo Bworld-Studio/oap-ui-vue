@@ -1,7 +1,7 @@
 {
 	"name": "oph-ui-vue",
-	"version": "0.3.3",
-	"description": "oph WebUI",
+	"version": "0.4.0",
+	"description": "oph webui vue",
 	"author": "GrayFawkes <gray.fawkes@outlook.com>",
 	"scripts": {
 		"dev": "vite --config vite.dev.config.js",
