@@ -18,7 +18,7 @@
 		"vuex": "^4.1.0"
 	},
 	"devDependencies": {
-		"@intlify/vite-plugin-vue-i18n": "^6.0.3",
+		"@intlify/vite-plugin-vue-i18n": "^7.0.0",
 		"@rollup/plugin-dynamic-import-vars": "^2.0.2",
 		"@vitejs/plugin-vue": "^3.2.0",
 		"eslint": "^8.30.0",
