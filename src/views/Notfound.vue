@@ -1,6 +1,5 @@
 <template>
 <div id="Notfound" class="bg-color">
-	<!-- <Header v-bind="headerParams" /> -->
 	<svg class="svg-404" width="380px" height="500px" viewBox="0 0 837 1045" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 		<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
 			<path id="Polygon-1" d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z" stroke="#007FB2" stroke-width="6" sketch:type="MSShapeGroup" />
@@ -26,21 +25,19 @@
 </template>
 <script>
 // Utilities
-// import { ref, reactive, onMounted, computed } from 'vue'	// Fonction Vue3-Composition API
+import { ref, reactive, onMounted, computed } from 'vue'	// Fonction Vue3-Composition API
 import { useI18n } from 'vue-i18n' 												// I18n
 import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de Vues
 
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	setup() {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels and Date
-		const headerParams = { view: 'template', title: t('template.title') } // Header
 		// let varNum = 0		// Variable de type nombre
 		// let varObj = {}		// Variable de type objet
 		// let varTab = []		// Variable de type Table

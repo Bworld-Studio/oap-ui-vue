@@ -1,6 +1,5 @@
 <template>
 <div id="settings">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar d-flex justify-content-between">
 		<span />
 		<span>
@@ -34,16 +33,14 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 // import { Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale, RadialLinearScale, TimeScale, TimeSeriesScale, Decimation, Filler, Legend, Title, Tooltip } from 'chart.js'
 
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t, d, availableLocales } = useI18n({ useScope: 'global' }) // Labels and Date
-		const headerParams = { view: 'settings', title: t('settings.title') } // Header
 
 		// Import Router for navigation
 		const router = useRouter() // Import Router
@@ -57,7 +54,7 @@ export default {
 		}
 
 		provide('search', search)
-		return { headerParams, search, t, d, availableLocales }
+		return { search, t, d, availableLocales }
 	}
 }
 </script>

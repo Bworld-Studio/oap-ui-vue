@@ -1,6 +1,5 @@
 <template>
 <div id="home">
-	<!-- <Header v-bind="headerParams" /> -->
 	<main class="home__main view__container container-fluid">
 		<div class="card__container">
 			<div v-for="(view) in views" :key="view.id" class="card" style="width: 25rem;">
@@ -18,18 +17,18 @@
 
 <script>
 // Utilities
-import { ref, provide } from 'vue'
+import { ref, provide, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter } from 'vue-router'
+import { useHeaderStore } from '../stores/header'
 
 // Views
-import Header from '../components/header/Header.vue'
 
 // API
 
 
 export default {
-	components: { Header },
+	components: { },
 	// props: { title: String },
 	setup() {
 
@@ -43,6 +42,8 @@ export default {
 
 		const router = useRouter() // Import Router
 
+		const { setTitle } = useHeaderStore()
+
 		const search = (term) => {
 			// searchClients(term)
 		}
@@ -52,12 +53,12 @@ export default {
 		}
 
 		// Header
-
-		const headerParams = { view: 'home', title: t('home.title') } // Header
+		onMounted( () => {
+			setTitle(t('home.title'))
+		})
 		provide('search', search)
 		
-		// return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }
-		return { views, search, headerParams, navigateTo, t, d }
+		return { views, search, navigateTo, t, d }
 	}
 }
 </script>

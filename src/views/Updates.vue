@@ -1,6 +1,5 @@
 <template>
 	<div id="updates">
-		<!-- <Header v-bind="headerParams" /> -->
 		<div class="container__main container-fluid">
 			<!-- <h2>{{ t('updates.title') }}</h2> -->
 			<div v-for="(line) in updatesTable" :key="line.id" :title="line.numSS">
@@ -27,16 +26,14 @@ import { useStore } from 'vuex'																					// Gestion des états
 import { useI18n } from 'vue-i18n' 																			// I18n
 
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 // import apiUpdates from '../api/updates.js'
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	setup() {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
-		const headerParams = { view: 'updates', title: t('updates.title') } // Header
 
 		const store = useStore()
 
@@ -58,7 +55,7 @@ export default {
 		console.log(updatesTable.value)
 
 		return {
-			updatesTable, updateBDPM, updateBdMIT, headerParams,
+			updatesTable, updateBDPM, updateBdMIT,
 			t, d
 		}
 	}

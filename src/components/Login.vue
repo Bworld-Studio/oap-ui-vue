@@ -1,10 +1,10 @@
 <template>
-<!-- Commentaire HTML -->
-<div class="container">
-	<!-- <div class="title">{{$t('global.openPharma')}}</div> -->
-	<!-- <div class="title">{{$t(viewLabel)}}</div> -->
-	<!-- <div v-bind="variable"></div> -->
-</div>
+	<!-- Commentaire HTML -->
+	<div class="container">
+		<!-- <div class="title">{{$t('global.openPharma')}}</div> -->
+		<!-- <div class="title">{{$t(viewLabel)}}</div> -->
+		<!-- <div v-bind="variable"></div> -->
+	</div>
 </template>
 
 <script>
@@ -15,13 +15,12 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 import Axios from 'axios'																	// Axios pour faire des appels au backend
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
 
 // API
 
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: {}, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const varLabel = ref('global.version')					// Binding de Label i18n
@@ -36,10 +35,10 @@ export default {
 			console.log('Template: Display stuff in the console')
 			console.log(varTemp)
 
-			varStr = varTemp
+			varStr.value = varTemp
 		}
 
-		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
+		onMounted(() => getData()) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
 		const { t } = useI18n({ useScope: 'global' }) // Labels
 		return { varStr, varLabel, t }
@@ -48,7 +47,7 @@ export default {
 </script>
 
 <style>
-
-	.title{ color: #cacaca }
-
+.title {
+	color: #cacaca
+}
 </style>

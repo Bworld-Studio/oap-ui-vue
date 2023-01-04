@@ -1,6 +1,5 @@
 <template>
 <div id="clients">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar">
 		<button id="button-action1" type="button" class="btn btn-success btn-outline-secondary" @click="createClient()">
 			{{ t('clients.action1') }}
@@ -43,18 +42,23 @@ import { ref, reactive, onMounted, computed, provide } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 import { useRouter, useRoute } from 'vue-router'
 
+// Stores
+import { useHeaderStore } from '../stores/header'
 // Views
-import Header from '../components/header/Header.vue'
 
 // API
 import apiClients from '../api/clients.js'
 
 export default {
-	components: { Header },
+	components: {  },
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels
+
+		const { setTitle } = useHeaderStore()
 		
 		const { clients, getClients, searchClients } = apiClients()
+
+
 
 		// API Calls
 		const search = (term) => {
@@ -62,7 +66,7 @@ export default {
 		}
 
 		onMounted( () => {
-			getClients()
+			setTitle(t('clients.title'))
 		})
 
 		// Navigation to Client.vue
@@ -84,10 +88,9 @@ export default {
 			router.push({ name: 'Client', params: params })
 		}
 
-		const headerParams = { view: 'clients', title: t('clients.title') } // Header
 		provide('search', search)
 
-		return { clients, createClient, editClient, displayClient, search, getClients, headerParams, t, d }
+		return { clients, createClient, editClient, displayClient, search, getClients, t, d }
 	}
 }
 </script>

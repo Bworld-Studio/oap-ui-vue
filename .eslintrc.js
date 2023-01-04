@@ -17,7 +17,9 @@ module.exports = {
 		'vue/singleline-html-element-content-newline': 0,
 		'vue/html-self-closing': ['error', {
 			'html': {
-				'void': 'always',
+				'void': 'never',
+				'normal': 'always',
+				'component': 'always',
 			}
 		}],
 	},

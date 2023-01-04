@@ -1,5 +1,5 @@
 import vue from '@vitejs/plugin-vue'
-import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 // import fs from 'fs'
@@ -13,7 +13,7 @@ export default {
 	clearScreen: false,
 	server: {
 		// https: options,
-		host: 'localhost',
+		host: '0.0.0.0',
 		port: 8080,
 		proxy: {
 			'/api': {

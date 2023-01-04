@@ -1,23 +1,17 @@
 <template>
-<div id="organism">
-	<Header v-bind="headerParams"/>
-	<form v-on:submit.prevent="addClient">
-		<div class="container__main container-fluid">
-			<div class="card__container">
-				<div class="card" style="width: 45%">
-					<div class="card__title"><h3>{{ t('organism.ident-title') }}</h3></div>
-				</div>
-			</div>
+<!-- Commentaire HTML -->
+<div id="showcase">
+	<div class="container__main container-fluid">
+		<div class="form-input">
+		  <label>
+		    <input required>
+		    <span class="placeholder">Text Input</span>
+		  </label>
 		</div>
-	</form>
+	</div>
 </div>
 </template>
 
-<style>
-.container__main { color: black; background-color: #f4f4f4; } */
-.card__title {color: white; background-color: #3ab595ff; padding: 0.5rem 1rem;}
-.card__container { display: flex; flex-direction: row; justify-items: left; flex-wrap: wrap; }
-</style>
 <script>
 // Utilities
 import { ref, reactive, onMounted, computed } from 'vue'	// Fonction Vue3-Composition API
@@ -26,17 +20,15 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 import Axios from 'axios'																	// Axios pour faire des appels au backend
 
 // Views
-import Header from '../header/Header.vue'									// Import de la vue Header
 
 // API
 
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		const headerParams = { view: 'showcase', title: t('showcase.title') } // Header
 
 		const varLabel = ref('global.version')					// Binding de Label i18n
 		let varStr = ref('Variable Simple binding')			// Variable de type alphanumérique
@@ -50,12 +42,18 @@ export default {
 			console.log('Template: Display stuff in the console')
 			console.log(varTemp)
 
-			varStr = varTemp
+			varStr.value = varTemp
 		}
 
 		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
-		return { varStr, varLabel, headerParams, t }
+		return { varStr, varLabel,  t }
 	}
 }
 </script>
+
+<style>
+
+	/* .title{ color: #cacaca } */
+
+</style>

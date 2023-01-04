@@ -1,7 +1,6 @@
 <template>
 <!-- Commentaire HTML -->
 <div id="template">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="container__main container-fluid">
 		<canvas id="testChart" />
 		<!-- <h2 class="title">{{ t('statistics.title') }}</h2> -->
@@ -24,17 +23,15 @@ import Axios from 'axios'																	// Axios pour faire des appels au back
 import { Chart, BarElement, BarController, CategoryScale, LinearScale, RadialLinearScale, TimeScale, TimeSeriesScale, Legend, Title, Tooltip } from 'chart.js'
 
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		const headerParams = { view: 'statistics', title: t('statistics.title') } // Header
 
 		let testChart = ref()
 
@@ -44,7 +41,7 @@ export default {
 		const getStatistics = () => {
 
 			let ctx = document.getElementById('testChart')
-			testChart = new Chart(ctx, {
+			testChart.value = new Chart(ctx, {
 				type: 'bar',
 				data: {
 					labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -81,7 +78,7 @@ export default {
 
 		onMounted( () => getStatistics() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
-		return { headerParams, t,
+		return { t,
 			testChart
 		}
 	}

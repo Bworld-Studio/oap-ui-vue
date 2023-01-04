@@ -1,20 +1,19 @@
 <template>
-<div id="produit">
-	<Header v-bind="headerParams"/>
-	<div class="toolbar d-flex justify-content-between">
-		<span>
-			<button class="btn btn-secondary" v-on:click="$router.back()">
-				<i class="bi bi-caret-left"></i>
-				<span class="btn-label">{{t('buttons.back-btn')}}</span>
-			</button>
-		</span>
-		<span>
-			<button class="btn btn-primary" v-on:click="getNotice()">
-				<i class="bi bi-journal-text"></i>
-				<span class="btn-label">{{t('product.action1')}}</span>
-			</button>
-		</span>
-		<!-- <button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
+	<div id="produit">
+		<div class="toolbar d-flex justify-content-between">
+			<span>
+				<button class="btn btn-secondary" @click="$router.back()">
+					<i class="bi bi-caret-left" />
+					<span class="btn-label">{{ t('buttons.back-btn') }}</span>
+				</button>
+			</span>
+			<span>
+				<button class="btn btn-primary" @click="getNotice()">
+					<i class="bi bi-journal-text" />
+					<span class="btn-label">{{ t('product.action1') }}</span>
+				</button>
+			</span>
+			<!-- <button v-show="!display" v-if="clientRef.uuid == undefined" class="btn btn-success" v-on:click="add()">
 			<i class="bi bi-save"></i>
 			<span class="btn-label">{{t('buttons.save-btn')}}</span>
 		</button>
@@ -22,27 +21,16 @@
 			<i class="bi bi-save"></i>
 			<span>{{t('buttons.update-btn')}}</span>
 		</button> -->
-	</div>
-	<main class="view__container container-fluid">
-		<!-- <form v-on:submit.prevent="addClient"> -->
-		<div >
-			<span class="cis__code">{{cis}}</span>
-			<span class="cis__code">{{labelMed}}</span>
 		</div>
-
-	</main>
-</div>
+		<main class="view__container container-fluid">
+			<!-- <form v-on:submit.prevent="addClient"> -->
+			<div>
+				<span class="cis__code">{{ cis }}</span>
+				<span class="cis__code">{{ labelMed }}</span>
+			</div>
+		</main>
+	</div>
 </template>
-
-<style>
-	.input_ss { width: 9em; }
-	.input_key { width: 3em; }
-	.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-		-moz-appearance: textfield;
-		-webkit-appearance: none;
-		margin: 0;
-	}
-</style>
 
 <script>
 // Utilities
@@ -50,30 +38,29 @@ import { ref, reactive, onMounted, computed, provide } from 'vue'
 import { useI18n } from 'vue-i18n' // I18n
 
 // Views
-import Header from '../header/Header.vue'
 
 // API
-import apiProduct from '../../api/product.js'
+import apiProduct from '../api/product.js'
 
 // Objects
-import objects from './../../common/objects.js'
+import objects from './../common/objects.js'
 
 export default {
-	components: { Header },
-	props: { cis: String, labelMed: String, mode: String },
+	components: {},
+	props: { cis: { type: String, required: true }, mode: { type: String, required: true } },
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
 		const product = ref({})
 
-		const cis = ref(props.cis)
-		const labelMed = ref(props.labelMed)
-		const mode = props.mode
+		// const cis = ref(props.cis)
+		// const labelMed = ref(props.labelMed)
+		// const mode = props.mode
 
 		const { products, getProducts, searchProducts, getProduct } = apiProduct()
 
-		onMounted( () => {
-			
-			if ( props.cis !== undefined && props.cis !== '' ) {
+		onMounted(() => {
+
+			if (props.cis !== undefined && props.cis !== '') {
 				get(props.cis)
 			}
 		})
@@ -138,14 +125,33 @@ export default {
 
 		}
 
-		const headerParams = { view: 'product', title: labelMed } // Header
 		provide('search', search)
 
 		return {
 			getNotice,
-			cis, labelMed,
-			search, headerParams, t
+			labelMed,
+			search, t
 		}
 	}
 }
 </script>
+
+
+<style>
+.input_ss {
+	width: 9em;
+}
+
+.input_key {
+	width: 3em;
+}
+
+.input_key input[type=number],
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	appearance: inherit;
+	-moz-appearance: textfield;
+	-webkit-appearance: none;
+	margin: 0;
+}
+</style>

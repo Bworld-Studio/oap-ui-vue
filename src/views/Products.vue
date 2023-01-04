@@ -1,6 +1,5 @@
 <template>
 <div id="products">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar">
 		<button id="button-action0" type="button" class="btn btn-primary" @click="refreshList()">{{ t('buttons.refresh-btn') }}</button>
 	</div>
@@ -50,17 +49,16 @@ import { useStore } from 'vuex'																		// Gestion des états
 import { useI18n } from 'vue-i18n' 																// I18n
 
 // Views
-import Header from '../components/header/Header.vue'													// Import de la vue Header
-import Product from '../components/products/Product.vue'
+// import Header from '../components/header/Header.vue'													// Import de la vue Header
+import Product from '../components/Product.vue'
 
 // API
 import apiProducts from '../api/products.js'
 
 export default {
-	components: { Header },
+	components: { },
 	setup() {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		// const headerParams = { view: 'clients', title: t('products.title') } // Header
 		const store = useStore()
 
 		const products = ref([])
@@ -101,7 +99,7 @@ export default {
 		}
 
 		// Header
-		const headerParams = { view: 'products', title: t('products.title') } // Header
+		// const headerParams = { view: 'products', title: t('products.title') } // Header
 		provide('search', search)
 
 		return {

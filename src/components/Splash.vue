@@ -12,11 +12,6 @@
 </div>
 </template>
 
-<style>
-	/* CSS */
-
-</style>
-
 <script>
 // Utilities
 import { ref, reactive, onMounted, computed, provide } from 'vue'	// Fonction Vue3-Composition API
@@ -32,10 +27,9 @@ import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de V
 
 export default {
 	// components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
-	props: { param: '' },		// Déclaration des paramètres d'entrée du composant
+	props: { },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels and Date
-		// const headerParams = { view: 'template', title: t('template.title') } // Header
 
 		// Import Router for navigation
 		const router = useRouter() // Import Router
@@ -59,7 +53,12 @@ export default {
 		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
 		provide('search', search)
-		return { varStr, varLabel, headerParams, search, t, d }
+		return { varStr, varLabel, search, t, d }
 	}
 }
 </script>
+
+<style>
+	/* CSS */
+
+</style>

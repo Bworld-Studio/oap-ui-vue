@@ -1,6 +1,5 @@
 <template>
 <div id="about">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="toolbar">
 		<button class="btn btn-secondary" @click="$router.back()">
 			<i class="bi bi-caret-left" />
@@ -13,23 +12,35 @@
 
 <script>
 // Utilities
-import { ref, reactive, onMounted, computed } from 'vue'	// Fonction Vue3-Composition API
+import { ref, reactive, onMounted, computed, provide } from 'vue'	// Fonction Vue3-Composition API
 import { useI18n } from 'vue-i18n' 												// I18n
 import { useRouter, useRoute } from 'vue-router'					// Fonctions du Router de Vues
 import Axios from 'axios'																	// Axios pour faire des appels au backend
 
+// Store
+import { useHeaderStore } from '../stores/header'
+
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t } = useI18n({ useScope: 'global' }) // Labels
-		const headerParams = { view: 'about', title: t('about.title') } // Header
+
+		const { setTitle } = useHeaderStore()
+		setTitle(t('about.title'))
+
+		const search = (term) => {
+			// searchClients(term)
+		}
+
+		onMounted( () => {
+			setTitle(t('about.title'))
+		})
 
 		// const varLabel = ref('global.version')					// Binding de Label i18n
 		// let varStr = ref('Variable Simple binding')		// Variable de type alphanumérique
@@ -51,7 +62,9 @@ export default {
 
 		} ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
-		return { headerParams, t }
+		provide('search', search)
+
+		return { t }
 	}
 }
 </script>

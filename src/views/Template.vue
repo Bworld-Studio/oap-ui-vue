@@ -1,7 +1,6 @@
 <template>
 <!-- Commentaire HTML -->
 <div id="template">
-	<!-- <Header v-bind="headerParams" /> -->
 	<div class="container__main container-fluid">
 		<!-- <h2 class="title">{{ t('template.title') }}</h2> -->
 		<div>{{ t(varLabel) }}</div>
@@ -22,16 +21,14 @@ import Axios from 'axios'																	// Axios pour faire des appels au back
 // import { Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale, RadialLinearScale, TimeScale, TimeSeriesScale, Decimation, Filler, Legend, Title, Tooltip } from 'chart.js'
 
 // Views
-import Header from '../components/header/Header.vue'									// Import de la vue Header
 
 // API
 
 export default {
-	components: { Header }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
+	components: { }, // Déclaration d'un composants à Ajouter, ie. la barre de recherche
 	//props: { param: '' },		// Déclaration des paramètres d'entrée du composant
 	setup(props, context) {
 		const { t, d } = useI18n({ useScope: 'global' }) // Labels and Date
-		const headerParams = { view: 'template', title: t('template.title') } // Header
 
 		// Import Router for navigation
 		const router = useRouter() // Import Router
@@ -52,7 +49,7 @@ export default {
 			console.log('Template: Display stuff in the console')
 			console.log(varTemp)
 
-			varStr = varTemp
+			varStr.value = varTemp
 		}
 
 		const search = (term) => {
@@ -62,7 +59,7 @@ export default {
 		onMounted( () => getData() ) // Fonction qui permet d'executer une autre fonction à l'appel du composant Template
 
 		provide('search', search)
-		return { varStr, varLabel, headerParams, search, t, d }
+		return { varStr, varLabel, search, t, d }
 	}
 }
 </script>

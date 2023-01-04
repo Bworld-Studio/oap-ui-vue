@@ -1,3 +1,10 @@
+### 0.4.1
+  - ✅ Bump to 0.4.1
+  - 🚧 Update name repository
+  - ⬆️ Updates all depedencies
+	- 🚧 Upgrade VueX to Pinia
+	- 👕 Refactoring and linting
+
 ### 0.4.0
   - ✅ Bump to 0.4.0
   - 🚧 Update name repository
